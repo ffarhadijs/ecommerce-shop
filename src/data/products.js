@@ -55,7 +55,7 @@ export const products = [
   {
     id: 5,
     title:
-      "Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+      "Women's Legends Naga Gold & Silver Dragon ",
     price: 295,
     description:
       "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
@@ -94,7 +94,7 @@ export const products = [
   },
   {
     id: 8,
-    title: "Pierced Owl Rose Gold Plated Stainless Steel Double",
+    title: "Pierced Owl Rose Gold Plated Stainless",
     price: 10.99,
     description:
       "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
@@ -120,7 +120,7 @@ export const products = [
   },
   {
     id: 10,
-    title: "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+    title: "SanDisk SSD PLUS 1TB Internal SSD - SATA III ",
     price: 109,
     description:
       "Easy upgrade for faster boot up, shutdown, application load and response (Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s.",
@@ -148,7 +148,7 @@ export const products = [
   {
     id: 12,
     title:
-      "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
+      "WD 4TB Gaming Drive Works with Playstation 4 ",
     price: 114,
     description:
       "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
@@ -161,7 +161,7 @@ export const products = [
   },
   {
     id: 13,
-    title: "Acer SB220Q bi 21.5 inches Full HD IPS Ultra-Thin",
+    title: "Acer SB220Q bi 21.5 inches Full HD IPS ",
     price: 250,
     description:
       "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. ",
@@ -188,7 +188,7 @@ export const products = [
   },
   {
     id: 15,
-    title: "BIYLACLE Women's 3-in-1 Snowboard Jacket Winter Coats",
+    title: "BIYLACLE Women's 3-in-1 Snowboard Jacket",
     price: 56.99,
     description:
       "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. ",
@@ -215,7 +215,7 @@ export const products = [
   },
   {
     id: 17,
-    title: "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
+    title: "Rain Jacket Women Windbreaker Striped ",
     price: 39.99,
     description:
       "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things.",
