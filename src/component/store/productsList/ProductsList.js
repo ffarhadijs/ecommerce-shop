@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import { useDispatch, useSelector } from "react-redux";
+import { AddToCart } from "../../../features/cart/cartSlice";
 
 const ProductsList = (props) => {
   const clickHandler = (item) => {
     props.setItem(item);
     props.setShow(true);
   };
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cartItems);
 
   return (
-    <div className=" flex flex-row flex-wrap justify-center">
+    <div className=" flex flex-row flex-wrap justify-center mx-auto">
       {props.filteredList.map((item) => (
         <div className=" w-52 bg-gray-100 border m-4 h-96">
           <div className="box relative bg-white w-full h-72 flex flex-col justify-center items-center">
@@ -26,33 +30,42 @@ const ProductsList = (props) => {
                 <IoEyeOutline />
               </button>
               <div className="bg-slate-800 w-full h-10 absolute bottom-0 left-0 text-white text-center flex flex-row justify-center hover:text-slate-900 hover:bg-slate-50">
-                <Link
-                  to="/"
+                <button
+                  onClick={() => dispatch(AddToCart(item))}
                   className=" flex flex-row items-center justify-center"
                 >
                   <AiOutlineShoppingCart className="inline mx-2" />
                   <span>Add To Cart</span>
-                </Link>
+                </button>
               </div>
             </div>
           </div>
           <section className="p-2">
-            <span className=" block font-semibold pb-2">
-              {shorten(item.title)}
-            </span>
-            <Stack spacing={1} style={{display:'flex',flexDirection:"row",alignItems:"center"}}>
-              {item.rating.rate}
-              <Rating
-                key={item.id}
-                name="half-rating-read"
-                defaultValue={item.rating.rate}
-                precision={0.1}
-                size="small"
-                readOnly
-              />
-               by: {item.rating.count}
-            </Stack>
-            <span className=" font-semibold block">$ {item.price}</span>
+            <Link to={`/shop/${item.id}`}>
+              <span className=" block font-semibold pb-2">
+                {shorten(item.title)}
+              </span>
+              <Stack
+                spacing={1}
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                {item.rating.rate}
+                <Rating
+                  key={item.id}
+                  name="half-rating-read"
+                  defaultValue={item.rating.rate}
+                  precision={0.1}
+                  size="small"
+                  readOnly
+                />
+                by: {item.rating.count}
+              </Stack>
+              <span className=" font-semibold block">$ {item.price}</span>
+            </Link>
           </section>
         </div>
       ))}

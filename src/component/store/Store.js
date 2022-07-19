@@ -81,7 +81,10 @@ const Store = () => {
   const changeHandler = (e) => {
     setFilter({ ...filter, [e.target.name]: e.target.value });
   };
-  console.log(filter);
+
+  const resetFilters = () => {
+    setFilter({ category: "", price: [1, 300], rate: "All", sort: "" });
+  };
   return (
     <div>
       <div className=" w-full h-32 bg-gradient-to-r text-xl from-gray-50 via-gray-200 to-gray-50 flex flex-row justify-center items-center">
@@ -91,17 +94,19 @@ const Store = () => {
         <span className="px-2">/</span>
         <span className=" text-black "> Shop</span>
       </div>
-      <div className="flex flex-row bg-gray-50">
-        <div className="flex flex-col w-1/5 p-4 mr-2 bg-gray-100">
+
+      <div className="flex flex-row items-start bg-gray-50">
+        <div className="flex flex-col w-1/5 p-4 mr-2 bg-gray-50">
           <FilterPanel
             changeHandler={changeHandler}
             filter={filter}
             setFilter={setFilter}
             applyFilter={applyFilter}
+            resetFilters={resetFilters}
           />
         </div>
 
-        <div className=" flex flex-col w-4/5 justify-center items-end">
+        <div className=" flex flex-col w-4/5 justify-center items-start">
           <div className="px-6 pt-6">
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
               <InputLabel id="demo-simple-select-standard-label">
@@ -125,14 +130,13 @@ const Store = () => {
               </Select>
             </FormControl>
           </div>
-          <div>
-            <ProductsList
-              filteredList={filteredList}
-              setItem={setItem}
-              setShow={setShow}
-            />
-          </div>
+          <ProductsList
+            filteredList={filteredList}
+            setItem={setItem}
+            setShow={setShow}
+          />
         </div>
+
         {show && <QuickView item={item} setShow={setShow} />}
         {show && <BackDrop setShow={setShow} />}
       </div>

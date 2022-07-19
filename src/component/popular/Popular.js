@@ -21,6 +21,12 @@ import { AiOutlineHeart } from "react-icons/ai";
 import ZoomIn from "../zoomIn/ZoomIn";
 import Backdrop from "../zoomIn/Backdrop";
 
+// import redux
+import { useDispatch, useSelector } from "react-redux";
+
+// import cart features
+import { AddToCart } from "../../features/cart/cartSlice";
+
 const Popular = () => {
   const [itemId, setItemId] = useState("");
   const [show, setShow] = useState(false);
@@ -62,8 +68,9 @@ const Popular = () => {
       },
     ],
   };
+  const dispatch = useDispatch();
   return (
-    <div className="relative bg-slate-800 text-white text-center p-10 flex flex-col">
+    <div className="relative bg-slate-900 text-white text-center p-10 flex flex-col">
       <span className=" text-3xl font-medium">Popular Products</span>
       <p className=" m-8 italic">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus
@@ -80,7 +87,7 @@ const Popular = () => {
                   <button onClick={() => showLargeImage(item)}>
                     <MdZoomOutMap />
                   </button>
-                  <button>
+                  <button onClick={() => dispatch(AddToCart(item))}>
                     <AiOutlineShoppingCart />
                   </button>
                   <button>

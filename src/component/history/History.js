@@ -9,6 +9,9 @@ import { GiSewingMachine } from "react-icons/gi";
 import { GiSewingNeedle } from "react-icons/gi";
 import { RiShirtFill } from "react-icons/ri";
 
+// import react-touter-dom features
+import { Link } from "react-router-dom";
+
 const History = () => {
   return (
     <div>
@@ -46,7 +49,7 @@ const History = () => {
           <span className=" text-3xl my-6 mx-auto">
             Fully Customizability Options Look Beautiful in 2018
           </span>
-          <p className="mx-auto leading-6 text-gray-900 font-medium m-0">
+          <p className="mx-auto leading-6 text-gray-900 m-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
             nibh dolor, efficitur eget pharetra ac, cursus sed sapien. Cras
             posuere ligula ut blandit varius.
@@ -66,9 +69,12 @@ const History = () => {
             </div>
           </div>
           <div className="text-center">
-            <button className="bg-slate-800 py-3 px-4 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 ">
+            <Link
+              to="/shop"
+              className="bg-slate-800 py-3 px-4 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 "
+            >
               SHOP NOW
-            </button>
+            </Link>
           </div>
         </div>
 

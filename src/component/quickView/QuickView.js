@@ -1,8 +1,11 @@
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { AddToCart } from "../../features/cart/cartSlice";
 
 const QuickView = (props) => {
+  const dispatch = useDispatch();
   return (
     <div
       style={{ height: "500px" }}
@@ -20,7 +23,10 @@ const QuickView = (props) => {
           <span className=" block">{props.item.description}</span>
         </div>
         <div className="flex flex-row p-4 items-center justify-center mx-auto">
-          <button className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mr-2">
+          <button
+            onClick={() => dispatch(AddToCart(props.item))}
+            className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mr-2"
+          >
             Add To Cart
           </button>
           <button className="bg-yellow-300 h-10 px-6 font-medium text-slate-800 hover:bg-slate-800 hover:text-gray-50 ml-2">

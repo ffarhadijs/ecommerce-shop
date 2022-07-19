@@ -4,8 +4,13 @@ import { AiOutlineUser } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux/es/exports";
+
+
+
 
 const Navbar = () => {
+  const cart=useSelector(state=>state.cart.cartItems)
   const menuList = [
     { name: "HOME", id: "1", to: "/" },
     { name: "SHOP", id: "2", to: "/shop" },
@@ -38,12 +43,12 @@ const Navbar = () => {
             <li className="p-2 m-1 border rounded-full border-slate-800  text-xl text-gray-500 hover:bg-slate-800 hover:text-gray-50 transition duration-500">
               <AiOutlineUser />
             </li>
-            <li className=" relative p-2 m-1 border rounded-full border-slate-800  hover:bg-slate-800 hover:text-gray-50 text-xl text-gray-500 transition duration-500">
-              <AiOutlineShoppingCart className=" " />
+            <Link to="/cart" className=" relative p-2 m-1 border rounded-full border-slate-800  hover:bg-slate-800 hover:text-gray-50 text-xl text-gray-500 transition duration-500">
+              <AiOutlineShoppingCart />
               <span className="absolute bottom-6 right-5 bg-slate-800 text-gray-50 rounded-full w-5 h-auto text-sm flex justify-center items-center">
-                2
+                {cart.length}
               </span>
-            </li>
+            </Link>
             <li className="p-2 m-1 border rounded-full border-slate-800  text-xl text-gray-500 hover:bg-slate-800 hover:text-gray-50 transition duration-500">
               <AiOutlineSearch />
             </li>

@@ -7,9 +7,9 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { categoryNumber } from "../../../helpers/categoryNumber";
 
-const FilterPanel = ({ filter, changeHandler }) => {
+const FilterPanel = ({ filter, changeHandler, resetFilters }) => {
   return (
-    <div className="flex flex-col bg-gray-100 pt-10">
+    <div className="flex flex-col bg-gray-50 pt-10">
       <span className=" text-2xl font-medium pb-5">Filter Panel</span>
       <div className="w-full">
         <span className=" text-xl font-medium ">Category</span>
@@ -64,6 +64,14 @@ const FilterPanel = ({ filter, changeHandler }) => {
             </ToggleButton>
           ))}
         </ToggleButtonGroup>
+      </div>
+      <div>
+        <button
+          onClick={resetFilters}
+          className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mr-2"
+        >
+          Reset Filters
+        </button>
       </div>
     </div>
   );
