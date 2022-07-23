@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import DetailPage from "./pages/DetailPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
@@ -9,6 +9,7 @@ import Shop from "./pages/Shop";
 import { Provider } from "react-redux/es/exports";
 import { store } from "./app/store";
 import Cart from "./pages/Cart";
+import BlogDetailPage from "./pages/BlogDetailPage";
 
 const App = () => {
   return (
@@ -16,10 +17,11 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/shop" element={<Shop />} />
-        <Route exact path="/shop/:id" element={<DetailPage />} />
+        <Route exact path="/shop/:id" element={<ProductDetailPage />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogDetailPage />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Provider>

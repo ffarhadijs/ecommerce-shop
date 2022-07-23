@@ -4,7 +4,7 @@ import LayoutWrapper from "../component/HOC/LayoutWrapper";
 import Popular from "../component/popular/Popular";
 import Shipment from "../component/shipment/Shipment";
 
-const DetailPage = () => {
+const ProductDetailPage = () => {
 
 
   return (
@@ -16,4 +16,4 @@ const DetailPage = () => {
   );
 };
 
-export default LayoutWrapper(DetailPage);
+export default LayoutWrapper(ProductDetailPage);
