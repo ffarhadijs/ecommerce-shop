@@ -7,6 +7,8 @@ import { FaRegComment } from "react-icons/fa";
 import { AiOutlineTag } from "react-icons/ai";
 import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
 import team1 from "../../assets/team-2.jpg";
+
+
 const BlogDetails = () => {
   const blogId = useParams().id;
   const blog = blogs[blogId];
@@ -56,7 +58,6 @@ const BlogDetails = () => {
               </div>
             </div>
           </div>
-
           <div className="bg-gray-200 flex flex-row justify-start items-center w-2/3 p-4 mx-auto my-16">
             <div className="w-1/5 px-2">
               <img src={team1} className=" rounded-full" />
