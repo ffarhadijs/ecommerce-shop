@@ -48,23 +48,25 @@ const ContactForm = () => {
         </h1>
 
         <div className="flex flex-row-reverse justify-start items-start">
-          <div className="w-1/3 border border-yellow-400 flex flex-col justify-start items-start justify-items-stretch">
-            <h3>our Address</h3>
-            <div>
-              <div> <MdOutlineLocationOn/> </div>
-              <p>Street No. 12, Newyork 12, </p>
-              <p>MD - 123, USA.</p>
+          <div className="w-1/3 border border-yellow-400 flex flex-col justify-start items-start justify-items-stretch p-6">
+            <h3 className="text-gray-800 font-semibold py-2">Our Address</h3>
+            <div className=" flex flex-row justify-start items-center py-2">
+              <div className="text-3xl text-gray-600 font-semibold w-10 flex flex-row justify-center items-center"> <MdOutlineLocationOn/> </div>
+              <div className="px-4">
+              <p className="text-gray-700 text-sm py-1">Street No. 12, Newyork 12, </p>
+              <p className=" text-gray-700 text-sm py-1">MD - 123, USA.</p>
+              </div>
             </div>
-            <div>
-              <div> <FiPhone/> </div>
-              <p> 1.800.123.456789 </p>
+            <div className="py-2 flex flex-row justify-start items-center">
+              <div className="text-2xl text-gray-600 font-semibold w-10 flex flex-row justify-center items-center"> <FiPhone/> </div>
+              <p className=" text-gray-700 text-sm px-4"> 1.800.123.456789 </p>
             </div>
-            <div>
-              <div> <MdOutlineMail/> </div>
-              <p> info@ecoshop.com </p>
+            <div className="py-2 flex flex-row justify-start items-center">
+              <div className="text-2xl text-gray-600 font-semibold w-10 flex flex-row justify-center items-center"> <MdOutlineMail/> </div>
+              <p className=" text-gray-700 text-sm px-4"> info@ecoshop.com </p>
             </div>
-            <div>
-              <p>
+            <div className=" py-2">
+              <p className="text-gray-700 text-sm px-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
                 erat turpis, pellentesque non leo eget.
               </p>
