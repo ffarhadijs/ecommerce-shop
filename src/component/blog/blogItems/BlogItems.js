@@ -4,6 +4,7 @@ import { BsCalendar3 } from "react-icons/bs";
 import { FaRegComment } from "react-icons/fa";
 import { AiOutlineTag } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import TextButton from "../../buttons/text/TextButton";
 
 
 
@@ -12,7 +13,7 @@ const BlogItems = ({ FilteredBlogs }) => {
     <div>
       {FilteredBlogs.map((blog) => (
         <div className="flex flex-col justify-center items-start py-10 border-b-2">
-          <img src={blog.image} className="w-full h-auto mx-auto" />
+          <img src={blog.image} alt="blog img" className="w-full h-auto mx-auto" />
           <Link to={`${blog.id}`} className="text-2xl font-semibold text-slate-800 hover:text-yellow-400 transition-colors duration-300 pb-5 pt-8">
             {blog.title}
           </Link>
@@ -35,8 +36,8 @@ const BlogItems = ({ FilteredBlogs }) => {
             </div>
           </div>
           <p className="py-4 text-gray-600 leading-8">{blog.dsecription}</p>
-          <Link to={`${blog.id}`} className="bg-slate-800 w-32 h-10 text-white text-center flex flex-row justify-center items-center hover:text-slate-900 hover:bg-yellow-300">
-            Read More
+          <Link to={`${blog.id}`} >
+          <TextButton text={"Read More"} />
           </Link>
         </div>
       ))}
