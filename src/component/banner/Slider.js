@@ -5,7 +5,7 @@ import TextButton from "../buttons/text/TextButton";
 const Slider = () => {
   return (
     <div>
-      <img src={banner} className="relative w-screen h-auto" />
+      <img alt="banner img" src={banner} className="relative w-screen h-auto" />
       <span className=" text-4xl text-slate-800 absolute top-60 right-36 font-semibold">
         Best Models For Summer 2022
       </span>
