@@ -3,6 +3,7 @@ import { blogsCategory } from "../../../data/dummyData";
 import { blogsYear } from "../../../data/dummyData";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { tagsNumber } from "../../../helpers/tagsNumber";
+import TextButton from "../../buttons/text/TextButton";
 const FilterBlog = ({ changeHandler, filter, resetFilters }) => {
   return (
     <div className="flex flex-col bg-gray-50 pt-10 pr-8">
@@ -29,6 +30,7 @@ const FilterBlog = ({ changeHandler, filter, resetFilters }) => {
         >
           {blogsCategory.map((item) => (
             <ToggleButton
+            key={item.id}
               value={item.name}
               name="tags"
               style={{ display: "flex", justifyContent: "space-between" }}
@@ -49,19 +51,14 @@ const FilterBlog = ({ changeHandler, filter, resetFilters }) => {
           className="w-full mt-6 mb-10"
         >
           {blogsYear.map((item) => (
-            <ToggleButton value={item.year} name="year">
+            <ToggleButton value={item.year} name="year" key={item.id}>
               <span>{item.year}</span>
             </ToggleButton>
           ))}
         </ToggleButtonGroup>
       </div>
       <div>
-        <button
-          onClick={resetFilters}
-          className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mr-2"
-        >
-          Reset Filters
-        </button>
+        <TextButton text={"Reset Filters"} clickHandler={resetFilters} />
       </div>
     </div>
   );
