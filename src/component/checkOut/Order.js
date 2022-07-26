@@ -2,13 +2,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { shorten } from "../../helpers/shorten";
 import { useFormik } from "formik";
+import TextButton from "../buttons/text/TextButton";
 
 const Order = () => {
   const items = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
   const formik = useFormik({
     initialValues: {
-      paymentMethod: "",
+      paymentMethod: "direct",
       accept: false,
     },
   });
@@ -89,8 +90,8 @@ const Order = () => {
           </div>
           <div className="flex flex-row justify-start items-center py-3 text-xs">
             <input
-              type="radio"
-              value={true}
+              type="checkbox"
+              value={!formik.values.accept}
               onChange={formik.handleChange}
               name="accept"
               id="accept"
@@ -98,14 +99,13 @@ const Order = () => {
             <label htmlFor="accept" className="px-2">
               I’VE READ AND ACCEPT THE
               <span className="text-red-500 cursor-pointer">
-                {" "}TERMS & CONDITIONS
+                {" "}
+                TERMS & CONDITIONS
               </span>
             </label>
           </div>
           <div className="flex flex-row justify-end mt-6">
-            <button className=" bg-slate-800 py-3 px-4 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 ">
-              Place Order
-            </button>
+            <TextButton text="Place Order"/>
           </div>
         </form>
       </div>
