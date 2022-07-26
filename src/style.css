@@ -1,0 +1,45 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.box:hover .tools {
+  display: flex;
+  background-color: rgba(124, 124, 124, 0.538);
+  visibility: visible;
+  transition: all 0.5s;
+}
+.tools {
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.box:hover .tools button {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.tools button{
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.modal-enter .modalContent {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.modal-enter-active .modalContent {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.5s;
+}
+.modal-exit .modalContent {
+  opacity: 1;
+}
+.modal-exit-active .modalContent {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.3s;
+}

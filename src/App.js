@@ -10,6 +10,8 @@ import { Provider } from "react-redux/es/exports";
 import { store } from "./app/store";
 import Cart from "./pages/Cart";
 import BlogDetailPage from "./pages/BlogDetailPage";
+import CheckOutPage from "./pages/CheckOutPage";
+import WishList from "./pages/WishList";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetailPage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/cart/checkout" element={<CheckOutPage/>}/>
+        <Route path="/wishlist" element={<WishList/>}/>
       </Routes>
     </Provider>
   );

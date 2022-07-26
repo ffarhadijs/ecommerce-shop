@@ -3,9 +3,6 @@ import React, { useState } from "react";
 // Import slider React components
 import Slider from "react-slick";
 
-// import css
-import "./styles.css";
-
 // import data
 import { products } from "../../data/products";
 
@@ -16,24 +13,30 @@ import { shorten } from "../../helpers/shorten";
 import { MdZoomOutMap } from "react-icons/md";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 
 // import components
-import ZoomIn from "../zoomIn/ZoomIn";
-import Backdrop from "../zoomIn/Backdrop";
+import Modal from "../modal/Modal";
 
 // import redux
 import { useDispatch, useSelector } from "react-redux";
 
 // import cart features
 import { AddToCart } from "../../features/cart/cartSlice";
+import { AddToList } from "../../features/wishList/wishSlice";
+
+import { Link } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
 const Popular = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [itemId, setItemId] = useState("");
-  const [show, setShow] = useState(false);
+
   const showLargeImage = (item) => {
     setItemId(item.id);
-    setShow(true);
+    setIsModalOpen(true);
   };
+
   var settings = {
     dots: true,
     infinite: false,
@@ -69,6 +72,7 @@ const Popular = () => {
     ],
   };
   const dispatch = useDispatch();
+  const wishListItems = useSelector((state) => state.wish.wishListItems);
   return (
     <div className="relative bg-slate-900 text-white text-center p-10 flex flex-col">
       <span className=" text-3xl font-medium">Popular Products</span>
@@ -82,31 +86,60 @@ const Popular = () => {
           .map((item) => (
             <div style={{ height: "400px" }} className=" flex flex-col">
               <div className="box relative mb-4 bg-white flex flex-col justify-center items-center border-8 border-slate-900 m-auto w-72 h-72">
-                <img src={item.image} className=" overflow-hidden h-auto" />
-                <div className=" tools flex-row justify-between border-8 border-slate-900 px-16 text-xl bg-gray-600 w-72 h-72 bg-opacity-70 items-center absolute hidden">
-                  <button onClick={() => showLargeImage(item)}>
+                <img
+                alt="item img"
+                  src={item.image}
+                  className=" overflow-hidden h-auto bg-slate-900"
+                />
+                <div className=" tools flex flex-row justify-between border-8 border-slate-900 px-16 text-2xl w-72 h-72 items-center absolute">
+                  <button
+                    onClick={() => showLargeImage(item)}
+                    className="hover:scale-125 hover:text-yellow-300 transition-all"
+                  >
                     <MdZoomOutMap />
                   </button>
-                  <button onClick={() => dispatch(AddToCart(item))}>
+
+                  <button
+                    onClick={() => dispatch(AddToCart(item))}
+                    className="hover:scale-125 hover:text-yellow-300 transition-all"
+                  >
                     <AiOutlineShoppingCart />
                   </button>
-                  <button>
-                    <AiOutlineHeart />
+                  <button
+                    onClick={() => dispatch(AddToList(item))}
+                    className="hover:scale-125 hover:text-yellow-300 transition-all"
+                  >
+                    {wishListItems.find((product) => product.id === item.id) ? (
+                      <AiFillHeart className="text-red-500" />
+                    ) : (
+                      <AiOutlineHeart />
+                    )}
                   </button>
                 </div>
               </div>
-              <span className=" text-lg font-semibold mb-2">
-                {shorten(item.title)}
-              </span>
-              <p className=" text-gray-400"> Lorem ipsum dolor sit amet</p>
-              <span className=" text-yellow-300 font-semibold mt-2 text-lg">
-                {item.price} $
-              </span>
+              <Link to={`shop/${item.id}`}>
+                <span className=" text-lg font-semibold mb-2">
+                  {shorten(item.title)}
+                </span>
+                <p className=" text-gray-400"> Lorem ipsum dolor sit amet</p>
+                <span className=" text-yellow-300 font-semibold mt-2 text-lg">
+                  <sup>$</sup> {item.price}
+                </span>
+              </Link>
             </div>
           ))}
       </Slider>
-      {show ? <ZoomIn itemId={itemId} /> : null}
-      {show ? <Backdrop setShow={setShow} /> : null}
+      <CSSTransition
+        in={isModalOpen}
+        timeout={500}
+        classNames="modal"
+        unmountOnExit
+      >
+        <Modal
+          setIsModalOpen={setIsModalOpen}
+          itemId={itemId}
+        />
+      </CSSTransition>
     </div>
   );
 };

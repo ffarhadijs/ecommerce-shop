@@ -1,45 +1,47 @@
 import React from "react";
-import { AiOutlineHeart } from "react-icons/ai";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { AddToCart } from "../../features/cart/cartSlice";
-
-const QuickView = (props) => {
+import LikeButton from "../buttons/like/LikeButton";
+import TextButton from "../buttons/text/TextButton";
+const QuickView = ({ item, setIsModalOpen }) => {
   const dispatch = useDispatch();
+
   return (
     <div
-      style={{ height: "500px" }}
-      className=" fixed top-16 left-1/4 w-1/2 border rounded-md bg-gray-200 flex flex-row justify-center items-center z-50 p-5"
+      onClick={() => setIsModalOpen(false)}
+      className="flex justify-center items-center fixed inset-0 bg-gray-700 bg-opacity-60"
     >
-      <div className="w-1/2 h-full bg-white flex flex-row justify-center items-center p-2">
-        <img src={props.item.image} className=" w-auto max-h-full" />
-      </div>
-      <div className="flex flex-col justify-between w-1/2 h-full py-5 px-6 bg-white">
-        <div>
-          <span className=" font-medium text-xl block">{props.item.title}</span>
-          <span className=" block font-medium text-gray-700 py-4">
-            {props.item.category}
-          </span>
-          <span className=" block">{props.item.description}</span>
-        </div>
-        <div className="flex flex-row p-4 items-center justify-center mx-auto">
-          <button
-            onClick={() => dispatch(AddToCart(props.item))}
-            className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mr-2"
-          >
-            Add To Cart
-          </button>
-          <button className="bg-yellow-300 h-10 px-6 font-medium text-slate-800 hover:bg-slate-800 hover:text-gray-50 ml-2">
-            <AiOutlineHeart />
-          </button>
-        </div>
-      </div>
-      <button
-        onClick={() => props.setShow(false)}
-        className="absolute top-0.5 right-0.5 text-2xl text-gray-500 hover:text-black transition-colors duration-500 "
+      <div
+        style={{ height: "500px" }}
+        className="modalContent relative flex items-center justify-center flex-row text-black z-50 w-1/2 border rounded-md bg-gray-200 p-5"
       >
-        <AiOutlineCloseCircle />
-      </button>
+        <div className="w-1/2 h-full bg-white flex flex-row justify-center items-center p-2">
+          <img src={item.image} className=" w-auto max-h-full" alt="item img"/>
+        </div>
+        <div className="flex flex-col justify-between w-1/2 h-full py-5 px-6 bg-white">
+          <div>
+            <span className=" font-medium text-xl block">{item.title}</span>
+            <span className=" block font-medium text-gray-700 py-4">
+              {item.category}
+            </span>
+            <span className=" block">{item.description}</span>
+          </div>
+          <div className="flex flex-row p-4 items-center justify-center mx-auto">
+            <TextButton
+              text={"Add To Cart"}
+              clickHandler={() => dispatch(AddToCart(item))}
+            />
+            <LikeButton item={item} />
+          </div>
+        </div>
+        <button
+          onClick={() => setIsModalOpen(false)}
+          className="absolute top-0.5 right-0.5 text-2xl text-gray-500 hover:text-black transition-colors duration-500 "
+        >
+          <AiOutlineCloseCircle />
+        </button>
+      </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { rateData, categoryData } from "../../../data/dummyData";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { categoryNumber } from "../../../helpers/categoryNumber";
+import TextButton from "../../buttons/text/TextButton";
 
 const FilterPanel = ({ filter, changeHandler, resetFilters }) => {
   return (
@@ -22,6 +23,7 @@ const FilterPanel = ({ filter, changeHandler, resetFilters }) => {
         >
           {categoryData.map((item) => (
             <ToggleButton
+            key={item.id}
               value={item.value}
               name="category"
               style={{ display: "flex", justifyContent: "space-between" }}
@@ -59,19 +61,14 @@ const FilterPanel = ({ filter, changeHandler, resetFilters }) => {
             All
           </ToggleButton>
           {rateData.map((item) => (
-            <ToggleButton value={item.number} name="rate">
+            <ToggleButton value={item.number} name="rate" key={item.id}>
               <Rating value={item.number} readOnly />
             </ToggleButton>
           ))}
         </ToggleButtonGroup>
       </div>
       <div>
-        <button
-          onClick={resetFilters}
-          className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mr-2"
-        >
-          Reset Filters
-        </button>
+        <TextButton text={"Reset Filters"} clickHandler={resetFilters} />
       </div>
     </div>
   );

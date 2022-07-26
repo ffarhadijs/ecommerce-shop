@@ -1,9 +1,9 @@
 export const rateData = [
-  { string: "1", number: 1 },
-  { string: "2", number: 2 },
-  { string: "3", number: 3 },
-  { string: "4", number: 4 },
-  { string: "5", number: 5 },
+  { string: "1", number: 1, id:"1" },
+  { string: "2", number: 2, id:"2" },
+  { string: "3", number: 3, id:"3" },
+  { string: "4", number: 4, id:"4" },
+  { string: "5", number: 5, id:"5" },
 ];
 
 export const categoryData = [
@@ -40,3 +40,28 @@ export const menuList = [
   { name: "ABOUT", id: "4", to: "/about" },
   { name: "CONTACT", id: "5", to: "/contact" },
 ];
+
+
+export const quotes=[
+  {
+    name: "John Smith",
+    comment:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maioresnon, iure exercitationem corporis ea error laudantium minimaaccusamus eius repellendus, labore earum? Fugit, adipisci possimusreiciendis soluta excepturi ut exercitationem sapiente maximealiquid distinctio corrupti, doloremque rem vero nobis non?",
+    position: "Co-Funder",
+    id:"1"
+  },
+  {
+    name: "Jack Smith",
+    comment:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maioresnon, iure exercitationem corporis ea error laudantium minimaaccusamus eius repellendus, labore earum? Fugit, adipisci possimusreiciendis soluta excepturi ut exercitationem sapiente maximealiquid distinctio corrupti, doloremque rem vero nobis non?",
+    position: "Accountant",
+    id:"2"
+  },
+  {
+    name: "Richard Smith",
+    comment:
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maioresnon, iure exercitationem corporis ea error laudantium minimaaccusamus eius repellendus, labore earum? Fugit, adipisci possimusreiciendis soluta excepturi ut exercitationem sapiente maximealiquid distinctio corrupti, doloremque rem vero nobis non?",
+    position: "Engineer",
+    id:"3"
+  },
+]

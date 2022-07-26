@@ -11,6 +11,7 @@ import { RiShirtFill } from "react-icons/ri";
 
 // import react-touter-dom features
 import { Link } from "react-router-dom";
+import TextButton from "../buttons/text/TextButton";
 
 const History = () => {
   return (
@@ -20,7 +21,7 @@ const History = () => {
           className="w-1/2 bg-no-repeat bg-cover bg-center"
           style={{ backgroundImage: `url(${history1})` }}
         ></div>
-        <div className=" w-1/2 p-16 py-3 flex flex-col">
+        <div className=" w-1/2 p-16 pt-3 pb-9 flex flex-col">
           <span className=" text-3xl my-6 mx-auto">
             A Brief History of the BoShop
           </span>
@@ -45,7 +46,7 @@ const History = () => {
         </div>
       </div>
       <div className="flex flex-row bg-red-50">
-        <div className="w-1/2 flex flex-col p-16 py-4">
+        <div className="w-1/2 flex flex-col p-16 pt-3 pb-9">
           <span className=" text-3xl my-6 mx-auto">
             Fully Customizability Options Look Beautiful in 2018
           </span>
@@ -69,11 +70,8 @@ const History = () => {
             </div>
           </div>
           <div className="text-center">
-            <Link
-              to="/shop"
-              className="bg-slate-800 py-3 px-4 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 "
-            >
-              SHOP NOW
+            <Link to="/shop">
+              <TextButton text={"SHOP NOW"} />
             </Link>
           </div>
         </div>

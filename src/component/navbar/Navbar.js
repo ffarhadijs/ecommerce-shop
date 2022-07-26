@@ -2,28 +2,22 @@ import React from "react";
 import logo from "../../assets/logo.svg";
 import { AiOutlineUser } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
-
+import { menuList } from "../../data/dummyData";
 
 
 
 const Navbar = () => {
   const cart=useSelector(state=>state.cart.cartItems)
-  const menuList = [
-    { name: "HOME", id: "1", to: "/" },
-    { name: "SHOP", id: "2", to: "/shop" },
-    { name: "BLOG", id: "3", to: "/blog" },
-    { name: "ABOUT", id: "4", to: "/about" },
-    { name: "CONTACT", id: "5", to: "/contact" },
-  ];
-
+  const wishList=useSelector(state=>state.wish.wishListItems)
+  
   return (
-    <div className=" flex flex-row justify-between items-center p-5">
-      <div>
-        <img src={logo} />
-      </div>
+    <div className=" flex flex-row justify-between items-center p-5 bg-white">
+      <Link to="/">
+        <img src={logo} alt="site logo"/>
+      </Link>
       <div className="flex flex-row items-center">
         <div>
           <ul className="flex flex-row items-center px-5">
@@ -49,9 +43,12 @@ const Navbar = () => {
                 {cart.length}
               </span>
             </Link>
-            <li className="p-2 m-1 border rounded-full border-slate-800  text-xl text-gray-500 hover:bg-slate-800 hover:text-gray-50 transition duration-500">
-              <AiOutlineSearch />
-            </li>
+            <Link to="/wishlist" className=" relative p-2 m-1 border rounded-full border-slate-800  hover:bg-slate-800 hover:text-gray-50 text-xl text-gray-500 transition duration-500">
+              <AiOutlineHeart />
+              <span className="absolute bottom-6 right-5 bg-slate-800 text-gray-50 rounded-full w-5 h-auto text-sm flex justify-center items-center">
+                {wishList.length}
+              </span>
+            </Link>
           </ul>
         </div>
       </div>

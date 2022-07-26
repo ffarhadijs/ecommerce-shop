@@ -52,10 +52,10 @@ const HistoryAbout = () => {
             non. Nulla lacinia, eros vel fermentum consectetur, ris dolor in ex.
           </span>
         </div>
-        <img src={cultureImg2} className="w-1/4" />
-        <img src={cultureImg3} className="w-1/4" />
-        <img src={cultureImg4} className="w-1/4" />
-        <img src={cultureImg1} className="w-1/4" />
+        <img src={cultureImg2} className="w-1/4" alt="history img"/>
+        <img src={cultureImg3} className="w-1/4" alt="history img"/>
+        <img src={cultureImg4} className="w-1/4" alt="history img"/>
+        <img src={cultureImg1} className="w-1/4" alt="history img"/>
       </div>
     </div>
   );

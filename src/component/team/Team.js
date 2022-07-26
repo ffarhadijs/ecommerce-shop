@@ -27,7 +27,7 @@ const Team = () => {
         {teamData.map((member) => (
           <div className="w-1/3 h-auto p-12 text-center flex flex-col justify-center items-center">
             <div className="box relative w-full h-auto mb-4">
-              <img src={member.img} className=" rounded-full w-full" />
+              <img src={member.img} className=" rounded-full w-full" alt="team member" />
               <div className="tools absolute top-0 left-0 w-full h-full rounded-full mb-4 bg-gray-800 bg-opacity-50 hidden flex-row justify-around items-center text-white text-3xl font-bold px-8">
                 <button>
                   <FiFacebook style={{ display: "inline" }} />

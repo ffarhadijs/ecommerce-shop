@@ -3,15 +3,32 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import { useParams } from "react-router-dom";
 import { products } from "../../data/products";
-import { AiOutlineHeart } from "react-icons/ai";
-
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useSelector, useDispatch } from "react-redux";
+import { AddToCart } from "../../features/cart/cartSlice";
+import { AddToList } from "../../features/wishList/wishSlice";
+import { Link } from "react-router-dom";
+import LikeButton from "../buttons/like/LikeButton"
+import TextButton from "../buttons/text/TextButton";
 const ProductDetail = () => {
   const id = useParams().id;
   const productId = id - 1;
   const product = products[productId];
 
+  const dispatch = useDispatch();
   return (
     <div>
+      <div className=" w-full h-32 bg-gradient-to-r text-xl from-gray-50 via-gray-200 to-gray-50 flex flex-row justify-center items-center">
+        <Link to="/" className=" text-gray-600 ">
+          BoShop
+        </Link>
+        <span className="px-2">/</span>
+        <Link to="/shop" className=" text-gray-600 ">
+          shop
+        </Link>
+        <span className="px-2">/</span>
+        <span className=" text-black "> Product</span>
+      </div>
       <div className="flex flex-row p-6 justify-center items-start">
         <div className=" w-1/2 p-6 flex flex-row justify-center items-center">
           <div className=" w-3/4 h-96 ">
@@ -54,12 +71,8 @@ const ProductDetail = () => {
           </div>
 
           <div className="flex flex-row justify-center items-center pt-10">
-            <button className=" bg-slate-800 py-2 px-4 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800">
-              Add to Cart
-            </button>
-            <button className="bg-yellow-300 h-10 px-6 font-medium text-slate-800 hover:bg-slate-800 hover:text-gray-50 ml-2">
-              <AiOutlineHeart />
-            </button>
+            <TextButton text={"Add To Cart"} clickHandler={() => dispatch(AddToCart(product))}/>
+            <LikeButton item={product}/>
           </div>
         </div>
       </div>

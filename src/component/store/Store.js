@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { products } from "../../data/products";
-import "../popular/styles.css";
-import QuickView from "../quickView/QuickView";
-import BackDrop from "../quickView/BackDrop";
 import ProductsList from "./productsList/ProductsList";
 import FilterPanel from "./filterPanel/FilterPanel";
 import { Link } from "react-router-dom";
@@ -12,8 +9,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 const Store = () => {
-  const [item, setItem] = useState(null);
-  const [show, setShow] = useState(false);
+
   const [filteredList, setFilteredList] = useState(products);
   const [filter, setFilter] = useState({
     category: "",
@@ -46,11 +42,11 @@ const Store = () => {
     if (filter.rate === "All") {
       filtered = filtered.filter(
         (item) =>
-          Math.floor(item.rating.rate) == 1 ||
-          Math.floor(item.rating.rate) == 2 ||
-          Math.floor(item.rating.rate) == 3 ||
-          Math.floor(item.rating.rate) == 4 ||
-          Math.floor(item.rating.rate) == 5
+          Math.floor(item.rating.rate) === 1 ||
+          Math.floor(item.rating.rate) === 2 ||
+          Math.floor(item.rating.rate) === 3 ||
+          Math.floor(item.rating.rate) === 4 ||
+          Math.floor(item.rating.rate) === 5
       );
     } else {
       filtered = filtered.filter(
@@ -85,6 +81,7 @@ const Store = () => {
   const resetFilters = () => {
     setFilter({ category: "", price: [1, 300], rate: "All", sort: "" });
   };
+
   return (
     <div>
       <div className=" w-full h-32 bg-gradient-to-r text-xl from-gray-50 via-gray-200 to-gray-50 flex flex-row justify-center items-center">
@@ -132,13 +129,10 @@ const Store = () => {
           </div>
           <ProductsList
             filteredList={filteredList}
-            setItem={setItem}
-            setShow={setShow}
+
           />
         </div>
 
-        {show && <QuickView item={item} setShow={setShow} />}
-        {show && <BackDrop setShow={setShow} />}
       </div>
     </div>
   );
