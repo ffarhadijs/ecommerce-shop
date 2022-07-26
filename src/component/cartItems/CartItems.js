@@ -2,6 +2,7 @@ import React from "react";
 import { Increase, Decrease, Remove } from "../../features/cart/cartSlice";
 import { FiTrash2 } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux/es/exports";
+import TextButton from "../buttons/text/TextButton";
 
 const CartItems = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -34,28 +35,24 @@ const CartItems = () => {
               <td className="text-center">
                 <div>
                   {item.itemQuantity <= 1 ? (
-                    <button
-                      onClick={() => dispatch(Remove(item))}
-                      className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mx-4"
-                    >
-                      <FiTrash2 />
-                    </button>
+                    <TextButton
+                      text={<FiTrash2 />}
+                      clickHandler={() => dispatch(Remove(item))}
+                    />
                   ) : (
-                    <button
-                      onClick={() => dispatch(Decrease(item))}
-                      className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mx-4"
-                    >
-                      -
-                    </button>
+                    <TextButton
+                      text={"-"}
+                      clickHandler={() => dispatch(Decrease(item))}
+                    />
                   )}
-
                   {item.itemQuantity}
-                  <button
-                    onClick={() => dispatch(Increase(item))}
-                    className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mx-4"
-                  >
-                    +
-                  </button>
+
+                  {
+                    <TextButton
+                      text={"+"}
+                      clickHandler={() => dispatch(Increase(item))}
+                    />
+                  }
                 </div>
               </td>
               <td className="text-center">
