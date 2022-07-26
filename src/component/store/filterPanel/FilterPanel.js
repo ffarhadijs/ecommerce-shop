@@ -7,32 +7,35 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { categoryNumber } from "../../../helpers/categoryNumber";
 import TextButton from "../../buttons/text/TextButton";
-
+import { rateNumber } from "../../../helpers/rateNumber";
 const FilterPanel = ({ filter, changeHandler, resetFilters }) => {
   return (
     <div className="flex flex-col bg-gray-50 pt-10">
       <span className=" text-2xl font-medium pb-5">Filter Panel</span>
       <div className="w-full">
         <span className=" text-xl font-medium ">Category</span>
-        <ToggleButtonGroup
-          orientation="vertical"
-          value={filter.category}
-          exclusive
-          onChange={changeHandler}
-          className="w-full mb-10 mt-6"
-        >
+        <div className="w-full my-4 p-2">
           {categoryData.map((item) => (
-            <ToggleButton
-            key={item.id}
-              value={item.value}
-              name="category"
-              style={{ display: "flex", justifyContent: "space-between" }}
-            >
-              <span>{item.name}</span>
-              <span>{categoryNumber(item.value)}</span>
-            </ToggleButton>
+            <div className="border " key={item.id}>
+              <input
+                type="radio"
+                name="category"
+                value={item.value}
+                id={item.name}
+                onChange={changeHandler}
+                checked={filter.category === item.value}
+                className="hidden"
+              />
+              <label
+                htmlFor={item.name}
+                className="flex flex-row justify-between items-center w-full cursor-pointer p-2"
+              >
+                <span>{item.name}</span>
+                <span>{categoryNumber(item.value)}</span>
+              </label>
+            </div>
           ))}
-        </ToggleButtonGroup>
+        </div>
       </div>
       <div className="w-full">
         <span className="text-xl font-medium ">Filter By Price</span>
@@ -50,22 +53,50 @@ const FilterPanel = ({ filter, changeHandler, resetFilters }) => {
       </div>
       <div>
         <span className="text-xl font-medium">Filter By Rate</span>
-        <ToggleButtonGroup
-          orientation="vertical"
-          value={filter.rate}
-          exclusive
-          onChange={changeHandler}
-          className="w-full mt-6 mb-10"
-        >
-          <ToggleButton value={"All"} name="rate">
-            All
-          </ToggleButton>
+        <div className="w-full my-4 p-2">
+        <div className="border">
+              <input
+                type="radio"
+                name="rate"
+                value={"All"}
+                id={"all"}
+                onChange={changeHandler}
+                checked={filter.rate === "All"}
+                className="hidden"
+              />
+              <label
+                htmlFor={"all"}
+                className="flex flex-row justify-between items-center w-full cursor-pointer p-2"
+              >
+                <div>
+                All
+                </div>
+                <span>{rateNumber("All")}</span>
+              </label>
+            </div>
           {rateData.map((item) => (
-            <ToggleButton value={item.number} name="rate" key={item.id}>
-              <Rating value={item.number} readOnly />
-            </ToggleButton>
+            <div className="border " key={item.id} >
+              <input
+                type="radio"
+                name="rate"
+                value={item.number}
+                id={item.string}
+                onChange={changeHandler}
+                checked={filter.rate === item.value}
+                className="hidden"
+              />
+              <label
+                htmlFor={item.string}
+                className="flex flex-row justify-between items-center w-full cursor-pointer p-2"
+              >
+                <div>
+                <Rating value={item.number} readOnly />
+                </div>
+                <span>{rateNumber(item.number)}</span>
+              </label>
+            </div>
           ))}
-        </ToggleButtonGroup>
+        </div>
       </div>
       <div>
         <TextButton text={"Reset Filters"} clickHandler={resetFilters} />
