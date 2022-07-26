@@ -6,6 +6,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import moment from "moment";
+import TextButton from "../buttons/text/TextButton";
 
 const Comments = () => {
   const formik = useFormik({
@@ -61,7 +62,6 @@ const Comments = () => {
     },
   ];
 
-  
   useEffect(() => {
     localStorage.setItem("comment", JSON.stringify(comment));
   }, [comment]);
@@ -73,7 +73,7 @@ const Comments = () => {
         {comments.map((comment) => (
           <div className="w-2/3 flex flex-row justify-center items-center border p-4 mx-auto my-4">
             <div className="w-1/5 p-4 ">
-              <img src={comment.img} className="rounded-full" />
+              <img src={comment.img} alt="comments profile img" className="rounded-full" />
             </div>
             <div className="flex flex-col justify-center items-start p-4 w-4/5">
               <div className="flex flex-row justify-start items-center py-2">
@@ -99,7 +99,7 @@ const Comments = () => {
         {comment.map((cm) => (
           <div className="w-2/3 flex flex-row justify-center items-center border p-4 mx-auto my-4">
             <div className="w-1/5 p-4 text-7xl flex flex-row justify-center items-center">
-              <FaUserCircle className="mx-0 px-0 text-gray-600"/>
+              <FaUserCircle className="mx-0 px-0 text-gray-600" />
             </div>
             <div className="flex flex-col justify-center items-start p-4 w-4/5">
               <div className="flex flex-row justify-start items-center py-2">
@@ -120,11 +120,11 @@ const Comments = () => {
         ))}
       </div>
       <div className="bg-white w-5/6 mx-auto">
-        <h2 className="text-slate-800 font-bold text-xl pt-10 pb-6">
+        <h2 className="text-slate-800 font-bold text-xl pt-10">
           Post your comment
         </h2>
         <form
-          className="flex flex-col justify-center items-start"
+          className="flex flex-col justify-center items-start py-10"
           onSubmit={formik.handleSubmit}
         >
           <div className="flex flex-row justify-start items-center w-2/3 mx-auto">
@@ -148,7 +148,9 @@ const Comments = () => {
               ) : null}
             </div>
             <div className="w-1/2 mx-4 h-12">
-              <label htmlFor="email" className="text-sm">E-mail:*</label>
+              <label htmlFor="email" className="text-sm">
+                E-mail:*
+              </label>
               <input
                 type="email"
                 id="email"
@@ -166,7 +168,9 @@ const Comments = () => {
             </div>
           </div>
           <div className="w-2/3 mx-auto my-10">
-            <label htmlFor="comment" className="text-sm">Comment:*</label>
+            <label htmlFor="comment" className="text-sm">
+              Comment:*
+            </label>
             <textarea
               value={formik.values.comment}
               id="comment"
@@ -181,12 +185,9 @@ const Comments = () => {
               </p>
             ) : null}
           </div>
-          <button
-            type="submit"
-            className=" bg-slate-800 py-3 px-4 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mx-auto my-5 outline-none"
-          >
-            Submit Comment
-          </button>
+          <div className="inline mx-auto">
+            <TextButton text={"Submit Comment"} />
+          </div>
         </form>
       </div>
     </div>
