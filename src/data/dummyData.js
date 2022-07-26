@@ -31,3 +31,12 @@ export const blogsYear = [
   { year: 2019, id: 4 },
   { year: 2018, id: 5 },
 ];
+
+
+export const menuList = [
+  { name: "HOME", id: "1", to: "/" },
+  { name: "SHOP", id: "2", to: "/shop" },
+  { name: "BLOG", id: "3", to: "/blog" },
+  { name: "ABOUT", id: "4", to: "/about" },
+  { name: "CONTACT", id: "5", to: "/contact" },
+];

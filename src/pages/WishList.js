@@ -3,9 +3,8 @@ import LayoutWrapper from "../component/HOC/LayoutWrapper";
 import { useSelector, useDispatch } from "react-redux";
 import { AddToCart } from "../features/cart/cartSlice";
 import { Remove } from "../features/wishList/wishSlice";
-import {Link} from "react-router-dom"
-
-
+import { Link } from "react-router-dom";
+import TextButton from "../component/buttons/text/TextButton";
 
 const WishList = () => {
   const dispatch = useDispatch();
@@ -42,20 +41,16 @@ const WishList = () => {
                 </span>
               </td>
               <td className="text-center">
-                <button
-                  onClick={() => dispatch(AddToCart(item))}
-                  className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mx-4"
-                >
-                  Add to Cart
-                </button>
+                <TextButton
+                  text={"Add To Cart"}
+                  clickHandler={() => dispatch(AddToCart(item))}
+                />
               </td>
               <td className="text-center">
-                <button
-                  onClick={() => dispatch(Remove(item))}
-                  className="bg-slate-800 px-4 h-10 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 mx-4"
-                >
-                  Remove
-                </button>
+                <TextButton
+                  text={"Remove"}
+                  clickHandler={() => dispatch(Remove(item))}
+                />
               </td>
             </tr>
           ))}
