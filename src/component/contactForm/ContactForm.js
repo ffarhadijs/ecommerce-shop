@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
+import TextButton from "../buttons/text/TextButton";
 
 const ContactForm = () => {
   const formik = useFormik({
@@ -110,7 +111,7 @@ const ContactForm = () => {
                   className="w-11/12 border outline-none px-3 py-2 border-slate-800"
                   name="email"
                   id="email"
-                  type="email"
+                  type="text"
                   onChange={formik.handleChange}
                   value={formik.values.email}
                   onBlur={formik.handleBlur}
@@ -174,11 +175,10 @@ const ContactForm = () => {
                 </label>
                 <textarea
                   className="w-3/4 border outline-none px-3 py-2 border-slate-800 resize-none h-24"
-                  type="text"
                   id="message"
                   name="message"
                   onChange={formik.handleChange}
-                  value={formik.values.subject}
+                  value={formik.values.message}
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.message && formik.errors.message ? (
@@ -187,12 +187,7 @@ const ContactForm = () => {
                   </p>
                 ) : null}
               </div>
-              <button
-                type="submit"
-                className=" bg-slate-800 py-3 px-4 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800 my-10 outline-none"
-              >
-                Send Email
-              </button>
+              <TextButton text={"Send Email"} type="submit"/>
             </form>
           </div>
         </div>
