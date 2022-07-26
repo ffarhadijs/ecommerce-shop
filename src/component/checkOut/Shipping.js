@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import TextButton from "../buttons/text/TextButton";
 const Shipping = () => {
   const formik = useFormik({
     initialValues: {
@@ -43,7 +44,9 @@ const Shipping = () => {
       country: Yup.string()
         .max(15, "Must be 30 characters or less")
         .required("Required"),
-      email: Yup.string().required("Required"),
+      email: Yup.string()
+        .email("Invalid Email Address")
+        .required("Required"),
       phone: Yup.string().required("Required"),
     }),
   });
@@ -197,7 +200,7 @@ const Shipping = () => {
           </label>
           <input
             className="w-4/5 outline-none py-2 px-2 border border-slate-800"
-            type="email"
+            type="text"
             id="email"
             name="email"
             value={formik.values.email}
@@ -232,9 +235,7 @@ const Shipping = () => {
             </p>
           ) : null}
         </div>
-        <button className=" bg-slate-800 py-3 px-4 font-medium text-gray-50 hover:bg-yellow-300 hover:text-slate-800">
-          Submit
-        </button>
+        <TextButton text={"Submit"} />
       </form>
     </div>
   );
