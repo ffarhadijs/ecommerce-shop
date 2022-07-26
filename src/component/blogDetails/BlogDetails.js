@@ -17,7 +17,7 @@ const BlogDetails = () => {
     <div className="bg-gray-50 py-20">
       <div className="w-5/6 flex flex-col justify-center items-center mx-auto">
         <div className="flex flex-col justify-center items-start">
-          <img src={blog.image} className="py-10" />
+          <img src={blog.image} className="py-10" alt="blog img"/>
           <h2 className="text-2xl font-semibold py-3">{blog.title}</h2>
           <div className="flex flex-row w-96 justify-between items-center py-3">
             <div className="flex flex-row justify-start items-center">
