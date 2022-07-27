@@ -13,11 +13,12 @@ const QuickView = ({ item, setIsModalOpen }) => {
       className="flex justify-center items-center fixed inset-0 bg-gray-700 bg-opacity-60"
     >
       <div
+        onClick={(e) => e.stopPropagation()}
         style={{ height: "500px" }}
-        className="modalContent relative flex items-center justify-center flex-row text-black z-50 w-1/2 border rounded-md bg-gray-200 p-5"
+        className="modalContent relative flex items-center justify-center flex-row text-black z-50 w-1/2 border rounded-md bg-gray-200 py-5 px-4"
       >
         <div className="w-1/2 h-full bg-white flex flex-row justify-center items-center p-2">
-          <img src={item.image} className=" w-auto max-h-full" alt="item img"/>
+          <img src={item.image} className=" w-auto max-h-full" alt="item img" />
         </div>
         <div className="flex flex-col justify-between w-1/2 h-full py-5 px-6 bg-white">
           <div>
