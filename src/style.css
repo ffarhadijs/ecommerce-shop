@@ -11,6 +11,7 @@ input[type="number"]::-webkit-outer-spin-button {
   visibility: visible;
   transition: all 0.5s;
 }
+
 .tools {
   visibility: hidden;
   transition: all 0.5s;
@@ -21,7 +22,7 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: all 0.5s;
 }
 
-.tools button{
+.tools button {
   opacity: 0;
   transition: all 0.5s;
 }
@@ -30,16 +31,39 @@ input[type="number"]::-webkit-outer-spin-button {
   opacity: 0;
   transform: scale(0.6);
 }
+
 .modal-enter-active .modalContent {
   opacity: 1;
   transform: translateX(0);
   transition: all 0.5s;
 }
+
 .modal-exit .modalContent {
   opacity: 1;
 }
+
 .modal-exit-active .modalContent {
   opacity: 0;
   transform: scale(0.7);
   transition: all 0.3s;
+}
+
+input[name="category"]:checked + label {
+  background: #94a3b8;
+  color: white;
+}
+
+input[name="rate"]:checked + label {
+  background: #94a3b8;
+  color: white;
+}
+
+input[name="tags"]:checked + label{
+  background: #94a3b8;
+  color: white;
+}
+
+input[name="year"]:checked + label{
+  background: #94a3b8;
+  color: white;
 }

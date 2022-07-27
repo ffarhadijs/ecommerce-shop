@@ -636,6 +636,14 @@ video {
   z-index: 50;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
+.z-40 {
+  z-index: 40;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -784,16 +792,16 @@ video {
   height: auto;
 }
 
-.h-40 {
-  height: 10rem;
-}
-
 .h-24 {
   height: 6rem;
 }
 
 .h-12 {
   height: 3rem;
+}
+
+.h-40 {
+  height: 10rem;
 }
 
 .h-36 {
@@ -1055,11 +1063,6 @@ video {
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
-.bg-gray-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
 .bg-white {

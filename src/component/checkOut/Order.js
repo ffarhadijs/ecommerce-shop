@@ -58,7 +58,7 @@ const Order = () => {
               name="paymentMethod"
               id="cash"
             />
-            <label htmlFor="cash" className="px-2">
+            <label htmlFor="cash" className="px-2 cursor-pointer">
               CASH ON DELIVERY
             </label>
           </div>
@@ -105,7 +105,7 @@ const Order = () => {
             </label>
           </div>
           <div className="flex flex-row justify-end mt-6">
-            <TextButton text="Place Order"/>
+            <TextButton text="Place Order" />
           </div>
         </form>
       </div>

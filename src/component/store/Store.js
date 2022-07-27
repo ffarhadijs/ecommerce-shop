@@ -9,7 +9,6 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 const Store = () => {
-
   const [filteredList, setFilteredList] = useState(products);
   const [filter, setFilter] = useState({
     category: "",
@@ -127,12 +126,8 @@ const Store = () => {
               </Select>
             </FormControl>
           </div>
-          <ProductsList
-            filteredList={filteredList}
-
-          />
+          <ProductsList filteredList={filteredList} />
         </div>
-
       </div>
     </div>
   );
