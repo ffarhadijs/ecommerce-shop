@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import BlogItems from "../blogItems/BlogItems";
 import FilterBlog from "../filterBlog/FilterBlog";
 import { blogs } from "../../../data/blogs";
-import { Link } from "react-router-dom";
+
 
 const BlogList = () => {
   const [FilteredBlogs, setFilteredBlogs] = useState(blogs);
   const [filter, setFilter] = useState({
     search: "",
-    tags: "All",
+    tags: "All Tags",
     year: "All",
   });
   const applyFilter = () => {
@@ -19,7 +19,7 @@ const BlogList = () => {
         blog.title.toLowerCase().includes(filter.search.toLowerCase())
       );
     }
-    if (filter.tags === "All") {
+    if (filter.tags === "All Tags") {
       filtered = filtered.filter(
         (blog) =>
           blog.tags === "Furniture" ||
@@ -55,8 +55,6 @@ const BlogList = () => {
   };
   return (
     <div className="bg-gray-50 px-8">
-
-
       <div className="flex flex-row items-start justify-center">
         <div className="w-1/5 flex flex-col justify-start items-center py-10">
           <FilterBlog
