@@ -4,7 +4,8 @@ import { FiTrash2 } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import TextButton from "../buttons/text/TextButton";
 import { FaCartPlus } from "react-icons/fa";
-
+import Tooltip from "@mui/material/Tooltip";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 const CartItems = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
@@ -34,25 +35,36 @@ const CartItems = () => {
                 </span>
               </td>
               <td className="text-center">
-                <div>
+                <div className="flex flex-row items-center justify-center">
                   {item.itemQuantity <= 1 ? (
-                    <TextButton
-                      text={<FiTrash2 />}
-                      clickHandler={() => dispatch(Remove(item))}
-                    />
+                    <Tooltip title="Remove">
+                      <button
+                        className="bg-slate-800 h-10 font-medium text-white hover:bg-yellow-300 hover:text-slate-800 mx-4 w-10 text-center"
+                        onClick={() => dispatch(Remove(item))}
+                      >
+                        <FiTrash2 className="mx-auto" />
+                      </button>
+                    </Tooltip>
                   ) : (
-                    <TextButton
-                      text={"-"}
-                      clickHandler={() => dispatch(Decrease(item))}
-                    />
+                    <Tooltip title="Decrease">
+                      <button
+                        className="bg-slate-800 h-10 font-medium text-white hover:bg-yellow-300 hover:text-slate-800 mx-4 w-10 text-center"
+                        onClick={() => dispatch(Decrease(item))}
+                      >
+                        <AiOutlineMinus className="mx-auto" />
+                      </button>
+                    </Tooltip>
                   )}
                   {item.itemQuantity}
-
                   {
-                    <TextButton
-                      text={"+"}
-                      clickHandler={() => dispatch(Increase(item))}
-                    />
+                    <Tooltip title="Increase">
+                      <button
+                        className="bg-slate-800 h-10 font-medium text-white hover:bg-yellow-300 hover:text-slate-800 mx-4 w-10 text-center"
+                        onClick={() => dispatch(Increase(item))}
+                      >
+                        <AiOutlinePlus className="mx-auto" />
+                      </button>
+                    </Tooltip>
                   }
                 </div>
               </td>
@@ -66,7 +78,11 @@ const CartItems = () => {
           ))}
         </tbody>
       </table>
-      <div className="flex flex-row justify-center items-center">{cartItems.length === 0 ? <FaCartPlus className="text-9xl text-slate-800"/> : null}</div>
+      <div className="flex flex-row justify-center items-center">
+        {cartItems.length === 0 ? (
+          <FaCartPlus className="text-9xl text-slate-800" />
+        ) : null}
+      </div>
     </div>
   );
 };

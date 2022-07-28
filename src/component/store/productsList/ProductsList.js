@@ -9,6 +9,10 @@ import { useDispatch } from "react-redux";
 import { AddToCart } from "../../../features/cart/cartSlice";
 import QuickView from "../../quickView/QuickView";
 import { CSSTransition } from "react-transition-group";
+import Tooltip from '@mui/material/Tooltip';
+
+
+
 const ProductsList = (props) => {
   const [item, setItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,14 +28,16 @@ const ProductsList = (props) => {
       {props.filteredList.map((item) => (
         <div className="product w-52 bg-gray-100 border m-4 h-96 transition-all duration-500" key={item.id}>
           <div className="box relative bg-white w-full h-72 flex flex-col justify-center items-center">
-            <img src={item.image} className=" w-3/4 max-h-80" alt="item img"/>
+            <img src={item.image} className=" w-3/4 max-h-80" alt={item.title}/>
             <div className=" tools w-full h-full absolute flex flex-row justify-center items-center">
+              <Tooltip title="Quick View">
               <button
                 onClick={() => clickHandler(item)}
                 className="  bg-slate-800 w-16 h-16 rounded-full mx-auto flex flex-col justify-center items-center text-white font-medium text-xl cursor-pointer hover:text-slate-900 hover:bg-slate-50 duration-500"
-              >
+                >
                 <IoEyeOutline />
               </button>
+                </Tooltip>
               <button
                 onClick={() => dispatch(AddToCart(item))}
                 className=" flex flex-row items-center justify-center bg-slate-800 w-full h-10 absolute bottom-0 left-0 text-gray-50 text-center hover:text-slate-900 hover:bg-slate-50 transition-colors duration-500"

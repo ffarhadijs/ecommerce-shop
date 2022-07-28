@@ -6,6 +6,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
 import { menuList } from "../../data/dummyData";
+import { Tooltip } from "@mui/material";
 
 
 
@@ -14,7 +15,7 @@ const Navbar = () => {
   const wishList=useSelector(state=>state.wish.wishListItems)
   
   return (
-    <div className=" flex flex-row justify-between items-center p-5 bg-white sticky top-0 left-0 right-0 z-50">
+    <div className=" flex flex-row justify-between items-center p-5 bg-white sticky top-0 left-0 right-0 z-40">
       <Link to="/">
         <img src={logo} alt="site logo"/>
       </Link>
@@ -34,21 +35,27 @@ const Navbar = () => {
         </div>
         <div>
           <ul className="flex flex-row">
+            <Tooltip title="Account">
             <li className="p-2 m-1 border rounded-full border-slate-800  text-xl text-gray-500 hover:bg-slate-800 hover:text-gray-50 transition duration-500">
               <AiOutlineUser />
             </li>
+            </Tooltip>
+            <Tooltip title="Shopping Cart">
             <Link to="/cart" className=" relative p-2 m-1 border rounded-full border-slate-800  hover:bg-slate-800 hover:text-gray-50 text-xl text-gray-500 transition duration-500">
               <AiOutlineShoppingCart />
               <span className="absolute bottom-6 right-5 bg-slate-800 text-gray-50 rounded-full w-5 h-auto text-sm flex justify-center items-center">
                 {cart.length}
               </span>
             </Link>
+            </Tooltip>
+            <Tooltip title="Wish List">
             <Link to="/wishlist" className=" relative p-2 m-1 border rounded-full border-slate-800  hover:bg-slate-800 hover:text-gray-50 text-xl text-gray-500 transition duration-500">
               <AiOutlineHeart />
               <span className="absolute bottom-6 right-5 bg-slate-800 text-gray-50 rounded-full w-5 h-auto text-sm flex justify-center items-center">
                 {wishList.length}
               </span>
             </Link>
+            </Tooltip>
           </ul>
         </div>
       </div>

@@ -7,7 +7,7 @@ import { FaRegComment } from "react-icons/fa";
 import { AiOutlineTag } from "react-icons/ai";
 import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
 import team1 from "../../assets/team-2.jpg";
-
+import Tooltip from "@mui/material/Tooltip";
 
 const BlogDetails = () => {
   const blogId = useParams().id;
@@ -17,7 +17,7 @@ const BlogDetails = () => {
     <div className="bg-gray-50 py-20">
       <div className="w-5/6 flex flex-col justify-center items-center mx-auto">
         <div className="flex flex-col justify-center items-start">
-          <img src={blog.image} className="py-10" alt="blog img"/>
+          <img src={blog.image} className="py-10" alt="blog img" />
           <h2 className="text-2xl font-semibold py-3">{blog.title}</h2>
           <div className="flex flex-row w-96 justify-between items-center py-3">
             <div className="flex flex-row justify-start items-center">
@@ -48,13 +48,19 @@ const BlogDetails = () => {
             <div className="flex flex-row justify-center items-center text-slate-800 text-xl">
               <span className=" font-bold">Share With:</span>
               <div className="mx-4 hover:text-yellow-400 transition-colors">
-                <FiInstagram />
+                <Tooltip title="Instagram">
+                  <FiInstagram />
+                </Tooltip>
               </div>
               <div className="mx-4 hover:text-yellow-400 transition-colors">
-                <FiFacebook />
+                <Tooltip title="FaceBook">
+                  <FiFacebook />
+                </Tooltip>
               </div>
               <div className="mx-4 hover:text-yellow-400 transition-colors">
-                <FiTwitter />
+                <Tooltip title="Twitter">
+                  <FiTwitter />
+                </Tooltip>
               </div>
             </div>
           </div>
@@ -72,13 +78,19 @@ const BlogDetails = () => {
                 </div>
                 <div className="flex flex-row justify-center items-center text-slate-800 ">
                   <div className="mx-4 hover:text-yellow-400 transition">
-                    <FiFacebook />
+                    <Tooltip title="Instagram">
+                      <FiInstagram />
+                    </Tooltip>
                   </div>
                   <div className="mx-4 hover:text-yellow-400 transition">
-                    <FiTwitter />
+                    <Tooltip title="FaceBook">
+                      <FiFacebook />
+                    </Tooltip>
                   </div>
                   <div className="mx-4 hover:text-yellow-400 transition">
-                    <FiInstagram />
+                    <Tooltip title="Twitter">
+                      <FiTwitter />
+                    </Tooltip>
                   </div>
                 </div>
               </div>

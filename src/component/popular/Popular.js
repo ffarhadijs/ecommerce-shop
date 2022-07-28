@@ -27,6 +27,7 @@ import { AddToList } from "../../features/wishList/wishSlice";
 
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import Tooltip from "@mui/material/Tooltip";
 
 const Popular = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -84,37 +85,55 @@ const Popular = () => {
         {products
           .filter((item) => item.rating.rate >= 4)
           .map((item) => (
-            <div style={{ height: "400px" }} className=" flex flex-col" key={item.id}>
+            <div
+              style={{ height: "400px" }}
+              className=" flex flex-col"
+              key={item.id}
+            >
               <div className="box relative mb-4 bg-white flex flex-col justify-center items-center border-8 border-slate-900 m-auto w-72 h-72">
                 <img
-                alt="item img"
+                  alt="item img"
                   src={item.image}
                   className=" overflow-hidden h-auto bg-slate-900"
                 />
                 <div className=" tools flex flex-row justify-between border-8 border-slate-900 px-16 text-2xl w-72 h-72 items-center absolute">
-                  <button
-                    onClick={() => showLargeImage(item)}
-                    className="hover:scale-125 hover:text-yellow-300 transition-all"
-                  >
-                    <MdZoomOutMap />
-                  </button>
+                  <Tooltip title="Enlarge Image">
+                    <button
+                      onClick={() => showLargeImage(item)}
+                      className="hover:scale-125 hover:text-yellow-300 transition-all"
+                    >
+                      <MdZoomOutMap />
+                    </button>
+                  </Tooltip>
 
-                  <button
-                    onClick={() => dispatch(AddToCart(item))}
-                    className="hover:scale-125 hover:text-yellow-300 transition-all"
-                  >
-                    <AiOutlineShoppingCart />
-                  </button>
-                  <button
-                    onClick={() => dispatch(AddToList(item))}
-                    className="hover:scale-125 hover:text-yellow-300 transition-all"
-                  >
-                    {wishListItems.find((product) => product.id === item.id) ? (
-                      <AiFillHeart className="text-red-500" />
-                    ) : (
-                      <AiOutlineHeart />
-                    )}
-                  </button>
+                  <Tooltip title="Add To Cart">
+                    <button
+                      onClick={() => dispatch(AddToCart(item))}
+                      className="hover:scale-125 hover:text-yellow-300 transition-all"
+                    >
+                      <AiOutlineShoppingCart />
+                    </button>
+                  </Tooltip>
+
+                  {wishListItems.find((product) => product.id === item.id) ? (
+                    <Tooltip title="Remove From Wishlist">
+                      <button
+                        onClick={() => dispatch(AddToList(item))}
+                        className="hover:scale-125 hover:text-yellow-300 transition-all"
+                      >
+                        <AiFillHeart className="text-red-500" />
+                      </button>
+                    </Tooltip>
+                  ) : (
+                    <Tooltip title="Add To Wishlist">
+                      <button
+                        onClick={() => dispatch(AddToList(item))}
+                        className="hover:scale-125 hover:text-yellow-300 transition-all"
+                      >
+                        <AiOutlineHeart />
+                      </button>
+                    </Tooltip>
+                  )}
                 </div>
               </div>
               <Link to={`shop/${item.id}`}>
@@ -135,10 +154,7 @@ const Popular = () => {
         classNames="modal"
         unmountOnExit
       >
-        <Modal
-          setIsModalOpen={setIsModalOpen}
-          itemId={itemId}
-        />
+        <Modal setIsModalOpen={setIsModalOpen} itemId={itemId} />
       </CSSTransition>
     </div>
   );

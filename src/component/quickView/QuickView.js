@@ -10,7 +10,7 @@ const QuickView = ({ item, setIsModalOpen }) => {
   return (
     <div
       onClick={() => setIsModalOpen(false)}
-      className="flex justify-center items-center fixed inset-0 bg-gray-700 bg-opacity-60"
+      className="flex justify-center items-center fixed inset-0 bg-gray-700 bg-opacity-60 z-50"
     >
       <div
         onClick={(e) => e.stopPropagation()}
