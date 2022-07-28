@@ -4,14 +4,18 @@ import { FiPhone } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
 import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
-
+import { footerAccountItems, footerLinkItems } from "../../data/dummyData";
 
 const Footer = () => {
   return (
     <div className=" bg-slate-900 py-10 px-28 text-gray-400 flex flex-row columns-3 justify-between">
       <div className=" flex flex-col">
         <div className="p-4 ">
-          <img src={logo} alt="site logo" className=" w-40 h-auto pb-4 mx-auto text-center" />
+          <img
+            src={logo}
+            alt="site logo"
+            className=" w-40 h-auto pb-4 mx-auto text-center"
+          />
         </div>
         <div className="flex flex-row justify-start items-center p-4">
           <div className="pr-4 text-xl">
@@ -43,21 +47,15 @@ const Footer = () => {
           <span className=" text-xl font-semibold text-white">Links</span>
         </div>
         <div className="flex flex-col ">
-          <Link to="/" className="py-2 hover:text-white hover:scale-105 transition-all duration-500">
-            Home
-          </Link>
-          <Link to="/shop" className="py-2  hover:text-white hover:scale-105 transition-all duration-500">
-            Shop
-          </Link>
-          <Link to="/blog" className="py-2 hover:text-white hover:scale-105 transition-all duration-500">
-            Blog
-          </Link>
-          <Link to="/about" className="py-2 hover:text-white hover:scale-105 transition-all duration-500">
-            About
-          </Link>
-          <Link to="/contact" className="py-2 hover:text-white hover:scale-105 transition-all duration-500">
-            Contact
-          </Link>
+          {footerLinkItems.map((item) => (
+            <Link
+              key={item.id}
+              to="/"
+              className="py-2 hover:text-white hover:scale-105 transition-all duration-500"
+            >
+              {item.item}
+            </Link>
+          ))}
         </div>
       </div>
       <div className="flex flex-col">
@@ -67,21 +65,15 @@ const Footer = () => {
           </span>
         </div>
         <div className="flex flex-col ">
-          <a href="#" className="py-2 hover:text-white hover:scale-105 transition-all duration-500">
-            Products
-          </a>
-          <a href="#" className="py-2 hover:text-white hover:scale-105 transition-all duration-500">
-            Find a Store
-          </a>
-          <a href="#" className="py-2 hover:text-white hover:scale-105 transition-all duration-500">
-            Features
-          </a>
-          <a href="#" className="py-2 hover:text-white hover:scale-105 transition-all duration-500">
-            Privacy Policy
-          </a>
-          <a href="#" className="py-2 hover:text-white hover:scale-105 transition-all duration-500">
-            Press Kit
-          </a>
+          {footerAccountItems.map((item) => (
+            <a
+              key={item.id}
+              href="#"
+              className="py-2 hover:text-white hover:scale-105 transition-all duration-500"
+            >
+              {item.item}
+            </a>
+          ))}
         </div>
       </div>
     </div>

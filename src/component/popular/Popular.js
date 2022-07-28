@@ -84,7 +84,7 @@ const Popular = () => {
         {products
           .filter((item) => item.rating.rate >= 4)
           .map((item) => (
-            <div style={{ height: "400px" }} className=" flex flex-col">
+            <div style={{ height: "400px" }} className=" flex flex-col" key={item.id}>
               <div className="box relative mb-4 bg-white flex flex-col justify-center items-center border-8 border-slate-900 m-auto w-72 h-72">
                 <img
                 alt="item img"

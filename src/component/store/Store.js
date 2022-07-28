@@ -7,6 +7,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { FaCartPlus } from "react-icons/fa";
 
 const Store = () => {
   const [filteredList, setFilteredList] = useState(products);
@@ -49,7 +50,7 @@ const Store = () => {
       );
     } else {
       filtered = filtered.filter(
-        (item) => Math.floor(item.rating.rate) == filter.rate
+        (item) => Math.floor(item.rating.rate) === Number(filter.rate)
       );
     }
 
@@ -90,9 +91,8 @@ const Store = () => {
         <span className="px-2">/</span>
         <span className=" text-black "> Shop</span>
       </div>
-
       <div className="flex flex-row items-start bg-gray-50">
-        <div className="flex flex-col w-1/5 p-4 mr-2 bg-gray-50">
+        <div className="flex flex-col w-1/5 p-8 bg-gray-50">
           <FilterPanel
             changeHandler={changeHandler}
             filter={filter}
@@ -102,8 +102,8 @@ const Store = () => {
           />
         </div>
 
-        <div className=" flex flex-col w-4/5 justify-center items-start">
-          <div className="px-6 pt-6">
+        <div className=" flex flex-col w-4/5 justify-start items-start p-8">
+          <div className="pb-2">
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
               <InputLabel id="demo-simple-select-standard-label">
                 Sort
@@ -127,6 +127,12 @@ const Store = () => {
             </FormControl>
           </div>
           <ProductsList filteredList={filteredList} />
+
+          {filteredList.length === 0 ? (
+            <div className="flex flex-row justify-center items-center w-full h-auto py-40">
+              <FaCartPlus className="text-9xl text-slate-800" />
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

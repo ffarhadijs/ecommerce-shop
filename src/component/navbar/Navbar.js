@@ -14,7 +14,7 @@ const Navbar = () => {
   const wishList=useSelector(state=>state.wish.wishListItems)
   
   return (
-    <div className=" flex flex-row justify-between items-center p-5 bg-white">
+    <div className=" flex flex-row justify-between items-center p-5 bg-white sticky top-0 left-0 right-0 z-50">
       <Link to="/">
         <img src={logo} alt="site logo"/>
       </Link>

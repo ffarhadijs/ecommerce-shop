@@ -25,11 +25,11 @@ const Rate = ({ filter, changeHandler }) => {
         </label>
       </div>
       {rateData.map((item) => (
-        <div className="border " key={item.id}>
+        <div className="border" key={item.id}>
           <input
             type="radio"
             name="rate"
-            value={item.number}
+            value={Number(item.number)}
             id={item.string}
             onChange={changeHandler}
             checked={filter.rate === item.number}
@@ -40,7 +40,7 @@ const Rate = ({ filter, changeHandler }) => {
             className="flex flex-row justify-between items-center w-full cursor-pointer p-2 "
           >
             <div>
-              <Rating value={item.number} readOnly />
+              <Rating value={Number(item.number)} readOnly />
             </div>
             <span>{rateNumber(item.number)}</span>
           </label>

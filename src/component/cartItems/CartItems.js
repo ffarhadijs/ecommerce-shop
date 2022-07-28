@@ -3,6 +3,7 @@ import { Increase, Decrease, Remove } from "../../features/cart/cartSlice";
 import { FiTrash2 } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import TextButton from "../buttons/text/TextButton";
+import { FaCartPlus } from "react-icons/fa";
 
 const CartItems = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -21,7 +22,7 @@ const CartItems = () => {
         </thead>
         <tbody>
           {cartItems.map((item) => (
-            <tr className=" border-b-2">
+            <tr className=" border-b-2" key={item.id}>
               <td className="flex flex-row justify-start items-center p-4 text-lg text-gray-600 font-semibold">
                 <img src={item.image} className=" w-20 h-auto mx-4" />
                 {item.title}
@@ -58,13 +59,14 @@ const CartItems = () => {
               <td className="text-center">
                 $
                 <span className=" text-slate-900 font-bold text-xl">
-                  {item.itemTotalPrice}
+                  {Number(item.itemTotalPrice).toFixed(2)}
                 </span>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <div className="flex flex-row justify-center items-center">{cartItems.length === 0 ? <FaCartPlus className="text-9xl text-slate-800"/> : null}</div>
     </div>
   );
 };

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import avatar from "../../assets/team-4.jpg";
-import avatar2 from "../../assets/team-3.jpg";
+
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import moment from "moment";
 import TextButton from "../buttons/text/TextButton";
+import { comments } from "../../data/dummyData";
+
+
 
 const Comments = () => {
   const formik = useFormik({
@@ -47,20 +49,6 @@ const Comments = () => {
       return [];
     }
   });
-  const comments = [
-    {
-      name: "William Saron",
-      date: "April 27, 2022 - 10:00 am",
-      email: "William@gmail.com",
-      img: avatar,
-    },
-    {
-      name: "Sara Smith",
-      date: "April 14, 2022 - 22:00 pm",
-      email: "Sara@gmail.com",
-      img: avatar2,
-    },
-  ];
 
   useEffect(() => {
     localStorage.setItem("comment", JSON.stringify(comment));
@@ -71,7 +59,7 @@ const Comments = () => {
       <div className="bg-white w-5/6 flex flex-col justify-center items-start mx-auto border-b-2">
         <span className="text-slate-800 font-bold text-xl py-10">Comments</span>
         {comments.map((comment) => (
-          <div className="w-2/3 flex flex-row justify-center items-center border p-4 mx-auto my-4">
+          <div className="w-2/3 flex flex-row justify-center items-center border p-4 mx-auto my-4" key={comment.id}>
             <div className="w-1/5 p-4 ">
               <img src={comment.img} alt="comments profile img" className="rounded-full" />
             </div>
@@ -97,7 +85,7 @@ const Comments = () => {
           </div>
         ))}
         {comment.map((cm) => (
-          <div className="w-2/3 flex flex-row justify-center items-center border p-4 mx-auto my-4">
+          <div className="w-2/3 flex flex-row justify-center items-center border p-4 mx-auto my-4" key={cm.id}>
             <div className="w-1/5 p-4 text-7xl flex flex-row justify-center items-center">
               <FaUserCircle className="mx-0 px-0 text-gray-600" />
             </div>

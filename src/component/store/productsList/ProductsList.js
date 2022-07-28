@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { AddToCart } from "../../../features/cart/cartSlice";
 import QuickView from "../../quickView/QuickView";
 import { CSSTransition } from "react-transition-group";
-
 const ProductsList = (props) => {
   const [item, setItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,9 +20,9 @@ const ProductsList = (props) => {
   const dispatch = useDispatch();
 
   return (
-    <div className=" flex flex-row flex-wrap justify-center mx-auto">
+    <div className=" flex flex-row flex-wrap justify-start">
       {props.filteredList.map((item) => (
-        <div className=" w-52 bg-gray-100 border m-4 h-96" key={item.id}>
+        <div className="product w-52 bg-gray-100 border m-4 h-96 transition-all duration-500" key={item.id}>
           <div className="box relative bg-white w-full h-72 flex flex-col justify-center items-center">
             <img src={item.image} className=" w-3/4 max-h-80" alt="item img"/>
             <div className=" tools w-full h-full absolute flex flex-row justify-center items-center">
@@ -71,6 +70,7 @@ const ProductsList = (props) => {
           </section>
         </div>
       ))}
+
       <CSSTransition
         in={isModalOpen}
         timeout={500}

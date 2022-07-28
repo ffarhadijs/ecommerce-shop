@@ -56,7 +56,7 @@ const BlogList = () => {
   return (
     <div className="bg-gray-50 px-8">
       <div className="flex flex-row items-start justify-center">
-        <div className="w-1/5 flex flex-col justify-start items-center py-10">
+        <div className="w-1/5 flex flex-col justify-start items-center py-10  mr-2">
           <FilterBlog
             changeHandler={changeHandler}
             filter={filter}

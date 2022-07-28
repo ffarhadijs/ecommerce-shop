@@ -12,7 +12,7 @@ const BlogItems = ({ FilteredBlogs }) => {
   return (
     <div>
       {FilteredBlogs.map((blog) => (
-        <div className="flex flex-col justify-center items-start py-10 border-b-2">
+        <div className="flex flex-col justify-center items-start py-10 border-b-2" key={blog.id}>
           <img src={blog.image} alt="blog img" className="w-full h-auto mx-auto" />
           <Link to={`${blog.id}`} className="text-2xl font-semibold text-slate-800 hover:text-yellow-400 transition-colors duration-300 pb-5 pt-8">
             {blog.title}

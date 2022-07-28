@@ -7,12 +7,13 @@ const Discound = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
 
+  
   return (
-    <div className="bg-gray-100 py-20">
+    <div className="bg-gray-100 py-10 mt-12">
       <div className=" w-5/6 mx-auto flex flex-row justify-center items-start">
         <div className=" w-1/2 flex flex-col justify-center items-start ">
-          <span className="text-xl font-semibold text-slate-800 border-b-4 border-yellow-400 pb-2 mb-24 ">
-            Discound Code
+          <span className="text-xl font-semibold text-slate-800 border-b-4 border-yellow-400 pb-2 mb-16 ">
+            Discount Code
           </span>
           <div className="flex flex-row justify-center item-center bg-gray-200 px-8 py-14">
             <input
@@ -29,12 +30,12 @@ const Discound = () => {
         </div>
 
         <div className=" w-1/2 flex flex-col justify-start items-start mx-4">
-          <span className="text-xl font-semibold text-slate-800 border-b-4 border-yellow-400 pb-2 mb-24 ">
+          <span className="text-xl font-semibold text-slate-800 border-b-4 border-yellow-400 pb-2 mb-16 ">
             Grand Total
           </span>
           <div className=" w-full h-auto border-2 border-slate-800 flex flex-col justify-center items-start p-4 bg-white">
             {cartItems.map((product) => (
-              <div className="flex flex-row justify-between items-center w-full border-b-2 py-3">
+              <div className="flex flex-row justify-between items-center w-full border-b-2 py-3" key={product.id}>
                 <span>{product.title}</span>
                 <span>{product.itemTotalPrice}</span>
               </div>
@@ -44,7 +45,7 @@ const Discound = () => {
                 Total: {totalQuantity}
               </span>
               <span className="text-lg font-semibold text-slate-800">
-                $ {totalAmount}
+                $ {Number(totalAmount).toFixed(2)}
               </span>
             </div>
             <Link to="checkout" className=" mx-auto">
