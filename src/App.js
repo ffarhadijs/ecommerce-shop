@@ -11,11 +11,15 @@ import { store } from "./app/store";
 import Cart from "./pages/Cart";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import CheckOutPage from "./pages/CheckOutPage";
-import WishList from "./pages/WishList";
+import WishListPage from "./pages/WishListPage";
+import GoToTop from "./component/goToTop/GoToTop";
+
+
 
 const App = () => {
   return (
     <Provider store={store}>
+      <GoToTop/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/shop" element={<Shop />} />
@@ -25,8 +29,8 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetailPage />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/cart/checkout" element={<CheckOutPage/>}/>
-        <Route path="/wishlist" element={<WishList/>}/>
+        <Route path="/cart/checkout" element={<CheckOutPage />} />
+        <Route path="/wishlist" element={<WishListPage />} />
       </Routes>
     </Provider>
   );
