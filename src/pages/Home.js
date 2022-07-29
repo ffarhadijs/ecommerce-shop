@@ -8,7 +8,7 @@ import LayoutWrapper from "../component/HOC/LayoutWrapper";
 
 const Home = () => {
   return (
-    <div>
+    <div >
       <Slider />
       <History />
       <Popular />

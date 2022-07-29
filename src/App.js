@@ -33,6 +33,7 @@ const App = () => {
         <Route path="/wishlist" element={<WishListPage />} />
       </Routes>
     </Provider>
+  
   );
 };
 

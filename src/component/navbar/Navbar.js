@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className=" max-w-full flex flex-row justify-between items-center p-5 bg-white sticky top-0 left-0 right-0 z-40">
       {/* hamburger menu */}
-      <button className="md:hidden " onClick={()=>setShow(!show)}>
+      <button className="md:hidden " onClick={() => setShow(!show)}>
         <FiMenu className="text-3xl text-slate-800" />
       </button>
 
@@ -32,12 +32,18 @@ const Navbar = () => {
 
       {/* menu items */}
       <div className="flex flex-row items-center">
-        <ul className={`${show?`h-auto `:`h-0 `} flex-col w-full absolute top-20 left-0 flex md:flex-row md:static md:items-center px-5 bg-white`}>
+        <ul
+          className={`${
+            show ? `h-auto ` : `h-0 `
+          } flex-col w-full absolute top-20 left-0 right-0 flex md:flex-row md:static md:items-center px-5 bg-white`}
+        >
           {menuList.map((item) => (
             <Link
               to={item.to}
               key={item.id}
-              className={`${show?`inline`:`hidden md:inline`} md:px-1 md:py-1 py-2 mx-2 text-slate-800 font-semibold hover:border-b hover:border-yellow-400 transition duration-500`}
+              className={`${
+                show ? `inline` : `hidden md:inline`
+              } md:px-1 md:py-1 py-2 mx-2 text-slate-800 font-semibold hover:border-b hover:border-yellow-400 transition duration-500`}
             >
               {item.name}
             </Link>
