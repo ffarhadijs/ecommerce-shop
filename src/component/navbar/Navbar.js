@@ -32,7 +32,7 @@ const Navbar = () => {
 
       {/* menu items */}
       <div className="flex flex-row items-center">
-        <ul className={`${show?`h-auto `:`h-0 `} flex-col w-full absolute top-50 left-0 flex md:flex-row md:static md:items-center px-5 bg-white`}>
+        <ul className={`${show?`h-auto `:`h-0 `} flex-col w-full absolute top-20 left-0 flex md:flex-row md:static md:items-center px-5 bg-white`}>
           {menuList.map((item) => (
             <Link
               to={item.to}
