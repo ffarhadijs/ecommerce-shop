@@ -58,16 +58,28 @@ input[name="rate"]:checked + label {
   color: white;
 }
 
-input[name="tags"]:checked + label{
+input[name="tags"]:checked + label {
   background: #94a3b8;
   color: white;
 }
 
-input[name="year"]:checked + label{
+input[name="year"]:checked + label {
   background: #94a3b8;
   color: white;
 }
-.product:hover{
+.product:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: box-shadow 500ms;
 }
+
+@media screen and (min-width: 768px) {
+  .banner {
+    background-image: url(assets/banner1.png);
+  }
+}
+
+.banner{
+  height: 500px;
+}
+
+

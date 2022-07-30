@@ -20,7 +20,10 @@ const Quotes = () => {
       </div>
       <Slider {...settings} className=" w-full mx-auto">
         {quotes.map((item) => (
-          <div className=" flex flex-col justify-center p-7 text-center" key={item.id}>
+          <div
+            className=" flex flex-col justify-center p-7 text-center"
+            key={item.id}
+          >
             <span>{item.comment}</span>
             <span className=" font-semibold block pt-7">{item.name}</span>
             <span className="pt-3 text-gray-600">{item.position}</span>

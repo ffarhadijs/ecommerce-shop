@@ -53,22 +53,20 @@ export const quotes = [
   {
     name: "John Smith",
     comment:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maioresnon, iure exercitationem corporis ea error laudantium minimaaccusamus eius repellendus, labore earum? Fugit, adipisci possimusreiciendis soluta excepturi ut exercitationem sapiente maximealiquid distinctio corrupti, doloremque rem vero nobis non?",
+      " Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper sapien lacus, eu luctus non. Nulla lacinia, eros vel fermentum consectetur",
     position: "Co-Funder",
     id: "1",
   },
   {
     name: "Jack Smith",
     comment:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maioresnon, iure exercitationem corporis ea error laudantium minimaaccusamus eius repellendus, labore earum? Fugit, adipisci possimusreiciendis soluta excepturi ut exercitationem sapiente maximealiquid distinctio corrupti, doloremque rem vero nobis non?",
-    position: "Accountant",
+    " Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper sapien lacus, eu luctus non. Nulla lacinia, eros vel fermentum consectetur",    position: "Accountant",
     id: "2",
   },
   {
     name: "Richard Smith",
     comment:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maioresnon, iure exercitationem corporis ea error laudantium minimaaccusamus eius repellendus, labore earum? Fugit, adipisci possimusreiciendis soluta excepturi ut exercitationem sapiente maximealiquid distinctio corrupti, doloremque rem vero nobis non?",
-    position: "Engineer",
+    " Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper sapien lacus, eu luctus non. Nulla lacinia, eros vel fermentum consectetur",    position: "Engineer",
     id: "3",
   },
 ];
