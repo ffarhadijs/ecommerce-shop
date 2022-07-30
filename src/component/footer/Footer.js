@@ -8,13 +8,13 @@ import { footerAccountItems, footerLinkItems } from "../../data/dummyData";
 
 const Footer = () => {
   return (
-    <div className=" bg-slate-900 py-10 px-28 text-gray-400 flex flex-row columns-3 justify-between">
-      <div className=" flex flex-col">
+    <div className=" bg-slate-900 py-10 text-gray-400 flex flex-wrap flex-row justify-between items-start">
+      <div className="flex flex-col w-3/4 sm:w-1/3 px-6">
         <div className="p-4 ">
           <img
             src={logo}
             alt="site logo"
-            className=" w-40 h-auto pb-4 mx-auto text-center"
+            className=" w-40 h-auto pb-4 text-center"
           />
         </div>
         <div className="flex flex-row justify-start items-center p-4">
@@ -42,7 +42,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col">
+
+      <div className="flex flex-col w-1/2 sm:w-1/3 items-center">
         <div className=" pt-4 pb-12">
           <span className=" text-xl font-semibold text-white">Links</span>
         </div>
@@ -58,7 +59,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col w-1/2 sm:w-1/3 items-center">
         <div className=" pt-4 pb-12">
           <span className=" text-xl font-semibold text-white">
             Account Info
