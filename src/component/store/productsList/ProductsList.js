@@ -4,14 +4,11 @@ import { IoEyeOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Rating from "@mui/material/Rating";
-import Stack from "@mui/material/Stack";
 import { useDispatch } from "react-redux";
 import { AddToCart } from "../../../features/cart/cartSlice";
 import QuickView from "../../quickView/QuickView";
 import { CSSTransition } from "react-transition-group";
-import Tooltip from '@mui/material/Tooltip';
-
-
+import Tooltip from "@mui/material/Tooltip";
 
 const ProductsList = (props) => {
   const [item, setItem] = useState(null);
@@ -24,20 +21,27 @@ const ProductsList = (props) => {
   const dispatch = useDispatch();
 
   return (
-    <div className=" flex flex-row flex-wrap justify-start">
+    <div className=" grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
       {props.filteredList.map((item) => (
-        <div className="product w-52 bg-gray-100 border m-4 h-96 transition-all duration-500" key={item.id}>
+        <div
+          className="product min-w bg-gray-100 border h-96 "
+          key={item.id}
+        >
           <div className="box relative bg-white w-full h-72 flex flex-col justify-center items-center">
-            <img src={item.image} className=" w-3/4 max-h-80" alt={item.title}/>
+            <img
+              src={item.image}
+              className=" w-3/4 max-h-72"
+              alt={item.title}
+            />
             <div className=" tools w-full h-full absolute flex flex-row justify-center items-center">
               <Tooltip title="Quick View">
-              <button
-                onClick={() => clickHandler(item)}
-                className="  bg-slate-800 w-16 h-16 rounded-full mx-auto flex flex-col justify-center items-center text-white font-medium text-xl cursor-pointer hover:text-slate-900 hover:bg-slate-50 duration-500"
+                <button
+                  onClick={() => clickHandler(item)}
+                  className="  bg-slate-800 w-16 h-16 rounded-full mx-auto flex flex-col justify-center items-center text-white font-medium text-xl cursor-pointer hover:text-slate-900 hover:bg-slate-50 duration-500"
                 >
-                <IoEyeOutline />
-              </button>
-                </Tooltip>
+                  <IoEyeOutline />
+                </button>
+              </Tooltip>
               <button
                 onClick={() => dispatch(AddToCart(item))}
                 className=" flex flex-row items-center justify-center bg-slate-800 w-full h-10 absolute bottom-0 left-0 text-gray-50 text-center hover:text-slate-900 hover:bg-slate-50 transition-colors duration-500"
@@ -47,20 +51,15 @@ const ProductsList = (props) => {
               </button>
             </div>
           </div>
-          <section className="p-2">
+          <section className="p-2 max-h-32 h-16">
             <Link to={`${item.id}`}>
               <span className=" block font-semibold pb-2">
                 {shorten(item.title)}
               </span>
-              <Stack
-                spacing={1}
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                {item.rating.rate}
+              <div className="flex flex-row items-center">
+                <span className="text-xs font-semibold">
+                  {item.rating.rate}
+                </span>
                 <Rating
                   key={item.id}
                   name="half-rating-read"
@@ -69,8 +68,10 @@ const ProductsList = (props) => {
                   size="small"
                   readOnly
                 />
-                by: {item.rating.count}
-              </Stack>
+                <span className="text-xs font-semibold">
+                  by: {item.rating.count}
+                </span>
+              </div>
               <span className=" font-semibold block">$ {item.price}</span>
             </Link>
           </section>

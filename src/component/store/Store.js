@@ -91,8 +91,8 @@ const Store = () => {
         <span className="px-2">/</span>
         <span className=" text-black "> Shop</span>
       </div>
-      <div className="flex flex-row items-start bg-gray-50">
-        <div className="flex flex-col w-1/5 p-8 bg-gray-50">
+      <div className="flex flex-col sm:flex-row items-start bg-gray-50">
+        <div className="flex flex-col w-full sm:w-80 lg:w-96 p-5 bg-gray-50">
           <FilterPanel
             changeHandler={changeHandler}
             filter={filter}
@@ -102,7 +102,7 @@ const Store = () => {
           />
         </div>
 
-        <div className=" flex flex-col w-4/5 justify-start items-start p-8">
+        <div className=" flex flex-col w-full justify-start items-start p-5">
           <div className="pb-2">
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
               <InputLabel id="demo-simple-select-standard-label">
