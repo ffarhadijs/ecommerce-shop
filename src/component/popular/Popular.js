@@ -90,13 +90,13 @@ const Popular = () => {
               className=" flex flex-col"
               key={item.id}
             >
-              <div className="box relative mb-4 bg-white flex flex-col justify-center items-center border-8 border-slate-900 m-auto w-72 h-72">
+              <div className="box relative mb-4 bg-white flex flex-col justify-center items-center border-8 border-slate-900 m-auto max-w-72 h-72">
                 <img
                   alt="item img"
                   src={item.image}
                   className=" overflow-hidden h-auto bg-slate-900"
                 />
-                <div className=" tools flex flex-row justify-between border-8 border-slate-900 px-16 text-2xl w-72 h-72 items-center absolute">
+                <div className=" tools flex flex-row justify-between  px-16 text-2xl w-full h-full items-center absolute">
                   <Tooltip title="Enlarge Image">
                     <button
                       onClick={() => showLargeImage(item)}
