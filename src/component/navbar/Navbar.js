@@ -10,17 +10,28 @@ import { useSelector } from "react-redux/es/exports";
 import { menuList } from "../../data/dummyData";
 import { Tooltip } from "@mui/material";
 import { FiMenu } from "react-icons/fi";
+import { IoMdClose } from "react-icons/io";
 
 const Navbar = () => {
   const cart = useSelector((state) => state.cart.cartItems);
   const wishList = useSelector((state) => state.wish.wishListItems);
   const [show, setShow] = useState(false);
-
+  const showHandler = (e) => {
+    e.stopPropagation();
+    setShow(!show);
+  };
   return (
-    <div className=" max-w-full flex flex-row justify-between items-center p-5 bg-white sticky top-0 left-0 right-0 z-40">
+    <div
+      onClick={() => setShow(false)}
+      className=" max-w-full flex flex-row justify-between items-center p-5 bg-white sticky top-0 left-0 right-0 z-40"
+    >
       {/* hamburger menu */}
-      <button className="md:hidden " onClick={() => setShow(!show)}>
-        <FiMenu className="text-3xl text-slate-800" />
+      <button className="md:hidden " onClick={showHandler}>
+        {show ? (
+          <IoMdClose className=" text-3xl text-slate-800 transition-opacity duration-1000" />
+        ) : (
+          <FiMenu className=" text-3xl text-slate-800 transition-opacity duration-1000" />
+        )}
       </button>
 
       {/* logo */}
@@ -33,9 +44,10 @@ const Navbar = () => {
       {/* menu items */}
       <div className="flex flex-row items-center">
         <ul
+          // style={{transition:"height 200ms"}}
           className={`${
-            show ? `h-auto ` : `h-0 `
-          } flex-col w-full absolute top-20 left-0 right-0 flex md:flex-row md:static md:items-center px-5 bg-white`}
+            show ? `h-52 ` : `h-0 `
+          } transition-height duration-300 flex-col w-full absolute top-20 left-0 right-0 flex md:flex-row md:static md:items-center px-5 bg-white`}
         >
           {menuList.map((item) => (
             <Link
