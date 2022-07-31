@@ -10,26 +10,26 @@ const Discound = () => {
   
   return (
     <div className="bg-gray-100 py-10 mt-12">
-      <div className=" w-5/6 mx-auto flex flex-row justify-center items-start">
-        <div className=" w-1/2 flex flex-col justify-center items-start ">
+      <div className=" w-full sm:w-5/6 mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start">
+        <div className="w-full sm:w-5/6 lg:w-1/2 flex flex-col justify-center items-start mx-2 my-6 px-4 sm:px-0">
           <span className="text-xl font-semibold text-slate-800 border-b-4 border-yellow-400 pb-2 mb-16 ">
             Discount Code
           </span>
-          <div className="flex flex-row justify-center item-center bg-gray-200 px-8 py-14">
+          <div className="flex flex-row justify-center item-center bg-gray-200 px-5 py-14 w-full">
             <input
-              className=" border w-80 px-3"
+              className=" border w-full px-3"
               type="text"
               placeholder="Enter Your Code If you Have One"
             />
-            <TextButton text={"Apply Code"} />
+            <TextButton text={"Apply Code"} className="mx-0 w-40" />
           </div>
-          <div className="flex flex-row justify-between item-center mt-14 w-96">
+          <div className="flex flex-row justify-between item-center mt-14 ">
             <TextButton text={"Update Cart"} />
             <TextButton text="Continue Shopping" />
           </div>
         </div>
 
-        <div className=" w-1/2 flex flex-col justify-start items-start mx-4">
+        <div className="w-full sm:w-5/6 lg:w-1/2 flex flex-col justify-start items-start mx-2 my-6 px-4 sm:px-0">
           <span className="text-xl font-semibold text-slate-800 border-b-4 border-yellow-400 pb-2 mb-16 ">
             Grand Total
           </span>
