@@ -55,8 +55,8 @@ const BlogList = () => {
   };
   return (
     <div className="bg-gray-50 px-8">
-      <div className="flex flex-row items-start justify-center">
-        <div className="w-1/5 flex flex-col justify-start items-center py-10  mr-2">
+      <div className="flex flex-col sm:flex-row items-start justify-center mx-auto">
+        <div className=" w-full sm:w-96 flex flex-col justify-start items-start py-10 mr-2">
           <FilterBlog
             changeHandler={changeHandler}
             filter={filter}
@@ -64,7 +64,7 @@ const BlogList = () => {
           />
         </div>
         
-        <div className="w-4/5 flex flex-col justify-center items-center py-10">
+        <div className="w-full flex flex-col justify-center items-center py-10">
           <BlogItems FilteredBlogs={FilteredBlogs} />
         </div>
       </div>

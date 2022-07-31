@@ -35,7 +35,7 @@ const BlogItems = ({ FilteredBlogs }) => {
               <span className="text-sm text-gray-700">{blog.tags}</span>
             </div>
           </div>
-          <p className="py-4 text-gray-600 leading-8">{blog.dsecription}</p>
+          <p className="py-4 px-2 text-gray-600 leading-8">{blog.dsecription}</p>
           <Link to={`${blog.id}`} >
           <TextButton text={"Read More"} />
           </Link>

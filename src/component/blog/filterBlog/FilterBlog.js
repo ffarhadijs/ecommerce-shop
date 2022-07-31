@@ -6,7 +6,7 @@ import Year from "./year/Year";
 
 const FilterBlog = ({ changeHandler, filter, resetFilters }) => {
   return (
-    <div className="flex flex-col bg-gray-50 pt-10 pr-8">
+    <div className="flex flex-col bg-gray-50 pt-10 sm:pr-8 w-full">
       <span className=" text-2xl font-medium pb-5">Filter Panel</span>
       <div className="w-full ">
         <span className=" text-xl font-medium ">Search</span>
