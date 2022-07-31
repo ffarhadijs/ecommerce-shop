@@ -14,12 +14,12 @@ const BlogDetails = () => {
   const blog = blogs[blogId];
 
   return (
-    <div className="bg-gray-50 py-20">
-      <div className="w-5/6 flex flex-col justify-center items-center mx-auto">
-        <div className="flex flex-col justify-center items-start">
+    <div className="bg-gray-50 py-5 sm:py-20">
+      <div className="w-full px-2 sm:p-0 sm:w-5/6 flex flex-col justify-center items-center mx-auto">
+        <div className="flex flex-col justify-center items-start px-2">
           <img src={blog.image} className="py-10" alt="blog img" />
           <h2 className="text-2xl font-semibold py-3">{blog.title}</h2>
-          <div className="flex flex-row w-96 justify-between items-center py-3">
+          <div className="flex flex-row w-full sm:w-96 justify-between items-center py-3">
             <div className="flex flex-row justify-start items-center">
               <AiOutlineUser className="mx-2" />
               <span className="text-sm text-gray-700">by {blog.user.name}</span>
@@ -38,37 +38,37 @@ const BlogDetails = () => {
             </div>
           </div>
           <p className="pt-3 pb-6 leading-6 text-gray-800">{blog.text}</p>
-          <div className="flex flex-row justify-around items-center w-5/6 mx-auto my-8">
+          <div className="flex flex-row justify-around items-center w-full sm:w-5/6 mx-auto my-8">
             <div>
-              <span className="text-xl text-slate-800 font-bold">Tags:</span>
-              <span className="text-xl font-semibold text-gray-800 px-3">
+              <span className="sm:text-xl text-slate-800 font-bold">Tags:</span>
+              <span className="sm:text-xl font-semibold text-gray-800 px-3">
                 {blog.tags}
               </span>
             </div>
-            <div className="flex flex-row justify-center items-center text-slate-800 text-xl">
+            <div className="flex flex-row justify-center items-center text-slate-800 sm:text-xl">
               <span className=" font-bold">Share With:</span>
-              <div className="mx-4 hover:text-yellow-400 transition-colors">
+              <div className="text-xl mx-2 sm:mx-4 hover:text-yellow-400 transition-colors">
                 <Tooltip title="Instagram">
                   <FiInstagram />
                 </Tooltip>
               </div>
-              <div className="mx-4 hover:text-yellow-400 transition-colors">
+              <div className="text-xl mx-2 sm:mx-4 hover:text-yellow-400 transition-colors">
                 <Tooltip title="FaceBook">
                   <FiFacebook />
                 </Tooltip>
               </div>
-              <div className="mx-4 hover:text-yellow-400 transition-colors">
+              <div className="text-xl mx-2 sm:mx-4 hover:text-yellow-400 transition-colors">
                 <Tooltip title="Twitter">
                   <FiTwitter />
                 </Tooltip>
               </div>
             </div>
           </div>
-          <div className="bg-gray-200 flex flex-row justify-start items-center w-2/3 p-4 mx-auto my-16">
-            <div className="w-1/5 px-2">
+          <div className="bg-gray-200 flex flex-col sm:flex-row justify-start items-center lg:w-2/3 md:w-4/5 w-full p-4 mx-auto my-8 sm:my-16">
+            <div className=" w-1/3 sm:w-1/5 px-2">
               <img src={team1} className=" rounded-full" />
             </div>
-            <div className="w-4/5 flex flex-col justify-center items-start p-4">
+            <div className=" w-full sm:w-4/5 flex flex-col justify-center items-start p-4">
               <div className="flex flex-row justify-between items-center w-full">
                 <div>
                   <h3 className=" text-slate-800 font-semibold text-lg">
