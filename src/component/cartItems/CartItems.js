@@ -12,10 +12,10 @@ const CartItems = () => {
 
   return (
     <div className="px-4">
-      <table className=" w-full table-auto sm:w-5/6 mx-auto my-12">
+      <table className=" w-full sm:w-5/6 mx-auto my-12">
         <thead className=" bg-slate-900 text-white">
           <tr>
-            <th className="py-2 ">Items</th>
+            <th className="py-2 w-40 sm:w-2/5">Items</th>
             <th className="py-2">Price</th>
             <th className="py-2 ">Qty</th>
             <th className="py-2 ">Total</th>
@@ -24,13 +24,13 @@ const CartItems = () => {
         <tbody>
           {cartItems.map((item) => (
             <tr className=" border-b-2" key={item.id}>
-              <td className="flex flex-col md:flex-row justify-start items-start md:items-center p-4 text-lg text-gray-600 font-semibold">
-                <img src={item.image} className=" w-20 h-auto mx-4" />
+              <td className="flex flex-col md:flex-row justify-start items-start md:items-center p-4 text-base sm:text-lg text-gray-600 font-semibold">
+                <img src={item.image} className=" w-20 h-auto sm:mx-4" />
                 <span>{item.title}</span>
               </td>
               <td className="text-center w-24">
                 $
-                <span className=" text-slate-900 font-bold text-xl">
+                <span className=" text-slate-900 font-bold text-lg sm:text-xl">
                   {item.price}
                 </span>
               </td>
@@ -72,7 +72,7 @@ const CartItems = () => {
               </td>
               <td className="text-center">
                 $
-                <span className=" text-slate-900 font-bold text-xl">
+                <span className=" text-slate-900 font-bold text-lg sm:text-xl">
                   {Number(item.itemTotalPrice).toFixed(2)}
                 </span>
               </td>
