@@ -29,13 +29,13 @@ const ProductDetail = () => {
         <span className="px-2">/</span>
         <span className=" text-black "> Product</span>
       </div>
-      <div className="flex flex-row p-6 justify-center items-start">
-        <div className=" w-1/2 p-6 flex flex-row justify-center items-center">
+      <div className="flex flex-col md:flex-row p-6 justify-center items-start">
+        <div className=" w-full md:w-1/2 py-6 flex flex-row justify-center items-center">
           <div className=" w-3/4 h-96 ">
             <img src={product.image} className=" w-auto h-full mx-auto" />
           </div>
         </div>
-        <div className="w-1/2 p-6 flex flex-col justify-between items-center">
+        <div className=" w-full md:w-1/2 py-6 flex flex-col justify-between items-center">
           <div>
             <p className=" py-4 text-2xl font-semibold text-black ">
               {product.title}
