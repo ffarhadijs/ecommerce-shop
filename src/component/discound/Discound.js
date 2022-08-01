@@ -37,7 +37,7 @@ const Discound = () => {
             {cartItems.map((product) => (
               <div className="flex flex-row justify-between items-center w-full border-b-2 py-3" key={product.id}>
                 <span>{product.title}</span>
-                <span>{product.itemTotalPrice}</span>
+                <span className="px-2">{product.itemTotalPrice}</span>
               </div>
             ))}
             <div className="flex flex-row justify-between items-center w-full py-3">
