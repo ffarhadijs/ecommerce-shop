@@ -36,13 +36,13 @@ const WishList = () => {
               <td className="text-center">
                 <TextButton
                   text={"Add To Cart"}
-                  className="mx-0 text-sm sm:text-base px-1"
+                  className="mx-0 text-sm sm:text-base px-1 sm:px-4"
                   clickHandler={() => dispatch(AddToCart(item))}
                 />
               </td>
               <td className="text-center">
                 <TextButton
-                  className="mx-0 text-sm sm:text-base px-1"
+                  className="mx-0 text-sm sm:text-base px-1 sm:px-4"
                   text={"Remove"}
                   clickHandler={() => dispatch(Remove(item))}
                 />
