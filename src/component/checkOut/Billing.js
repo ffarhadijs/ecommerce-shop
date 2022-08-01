@@ -54,10 +54,10 @@ const Billing = () => {
         Billing Information
       </h1>
       <form
-        className="flex flex-row justify-start items-center flex-wrap"
+        className="flex flex-col sm:flex-row justify-start items-start sm:items-center flex-wrap"
         onSubmit={formik.handleSubmit}
       >
-        <div className="h-24 w-1/2">
+        <div className="h-24 w-full sm:w-1/2">
           <label
             htmlFor="firstName"
             className="text-gray-600 text-sm font-semibold py-1 block"
@@ -65,7 +65,7 @@ const Billing = () => {
             First Name:*
           </label>
           <input
-            className="w-4/5 outline-none py-2 px-2 border border-slate-800"
+            className="w-5/6 sm:w-4/5 outline-none py-2 px-2 border border-slate-800"
             type="text"
             id="firstName"
             name="firstName"
@@ -77,7 +77,7 @@ const Billing = () => {
             <p className="text-red-500 text-xs font-semibold">{formik.errors.firstName}</p>
           ) : null}
         </div>
-        <div className="h-24 w-1/2">
+        <div className="h-24 w-full sm:w-1/2">
           <label
             htmlFor="lastName"
             className="text-gray-600 text-sm font-semibold py-1 block"
@@ -85,7 +85,7 @@ const Billing = () => {
             Last Name:*
           </label>
           <input
-            className="w-4/5 outline-none py-2 px-2 border border-slate-800"
+            className="w-5/6 sm:w-4/5 outline-none py-2 px-2 border border-slate-800"
             type="text"
             id="lastName"
             name="lastName"
@@ -97,7 +97,7 @@ const Billing = () => {
             <p className="text-red-500 text-xs font-semibold">{formik.errors.lastName}</p>
           ) : null}
         </div>
-        <div className="h-24 w-1/2">
+        <div className="h-24 w-full sm:w-1/2">
           <label
             htmlFor="company"
             className="text-gray-600 text-sm font-semibold py-1 block"
@@ -105,7 +105,7 @@ const Billing = () => {
             Company Name:
           </label>
           <input
-            className="w-4/5 outline-none py-2 px-2 border border-slate-800"
+            className="w-5/6 sm:w-4/5 outline-none py-2 px-2 border border-slate-800"
             type="text"
             id="company"
             name="company"
@@ -117,7 +117,7 @@ const Billing = () => {
             <p className="text-red-500 text-xs font-semibold">{formik.errors.company}</p>
           ) : null}
         </div>
-        <div className="h-24 w-1/2">
+        <div className="h-24 w-full sm:w-1/2">
           <label
             htmlFor="address"
             className="text-gray-600 text-sm font-semibold py-1 block"
@@ -125,7 +125,7 @@ const Billing = () => {
             Address:*
           </label>
           <input
-            className="w-4/5 outline-none py-2 px-2 border border-slate-800"
+            className="w-5/6 sm:w-4/5 outline-none py-2 px-2 border border-slate-800"
             type="text"
             id="address"
             name="address"
@@ -137,7 +137,7 @@ const Billing = () => {
             <p className="text-red-500 text-xs font-semibold">{formik.errors.address}</p>
           ) : null}
         </div>
-        <div className="h-24 w-1/2">
+        <div className="h-24 w-full sm:w-1/2">
           <label
             htmlFor="city"
             className="text-gray-600 text-sm font-semibold py-1 block "
@@ -145,7 +145,7 @@ const Billing = () => {
             City:*
           </label>
           <input
-            className="w-4/5 outline-none py-2 px-2 border border-slate-800"
+            className="w-5/6 sm:w-4/5 outline-none py-2 px-2 border border-slate-800"
             type="text"
             id="city"
             name="city"
@@ -157,7 +157,7 @@ const Billing = () => {
             <p className="text-red-500 text-xs font-semibold">{formik.errors.city}</p>
           ) : null}
         </div>
-        <div className="h-24 w-1/2">
+        <div className="h-24 w-full sm:w-1/2">
           <label
             htmlFor="country"
             className="text-gray-600 text-sm font-semibold py-1 block"
@@ -165,7 +165,7 @@ const Billing = () => {
             Country:*
           </label>
           <input
-            className="w-4/5 outline-none py-2 px-2 border border-slate-800"
+            className="w-5/6 sm:w-4/5 outline-none py-2 px-2 border border-slate-800"
             type="text"
             id="country"
             name="country"
@@ -177,7 +177,7 @@ const Billing = () => {
             <p className="text-red-500 text-xs font-semibold">{formik.errors.country}</p>
           ) : null}
         </div>
-        <div className="h-24 w-1/2">
+        <div className="h-24 w-full sm:w-1/2">
           <label
             htmlFor="email"
             className="text-gray-600 text-sm font-semibold py-1 block"
@@ -185,7 +185,7 @@ const Billing = () => {
             Email Address:*
           </label>
           <input
-            className="w-4/5 outline-none py-2 px-2 border border-slate-800"
+            className="w-5/6 sm:w-4/5 outline-none py-2 px-2 border border-slate-800"
             type="text"
             id="email"
             name="email"
@@ -197,7 +197,7 @@ const Billing = () => {
             <p className="text-red-500 text-xs font-semibold">{formik.errors.email}</p>
           ) : null}
         </div>
-        <div className="h-24 w-1/2">
+        <div className="h-24 w-full sm:w-1/2">
           <label
             htmlFor="phone"
             className="text-gray-600 text-sm font-semibold py-1 block"
@@ -205,7 +205,7 @@ const Billing = () => {
             Phone:*
           </label>
           <input
-            className="w-4/5 outline-none py-2 px-2 border border-slate-800"
+            className="w-5/6 sm:w-4/5 outline-none py-2 px-2 border border-slate-800"
             type="number"
             id="phone"
             name="phone"
