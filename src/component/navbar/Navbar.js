@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <div
       onClick={() => setShow(false)}
-      className=" max-w-full flex flex-row justify-between items-center p-5 bg-white sticky top-0 left-0 right-0 z-40"
+      className=" max-w-full flex flex-row justify-between items-center p-5 bg-white sticky top-0 left-0 right-0 z-40 shadow-md"
     >
       {/* hamburger menu */}
       <button className="md:hidden " onClick={showHandler}>
@@ -37,17 +37,16 @@ const Navbar = () => {
       {/* logo */}
       <div className="hidden sm:inline">
         <Link to="/">
-          <img src={logo} alt="site logo" c />
+          <img src={logo} alt="site logo"/>
         </Link>
       </div>
 
       {/* menu items */}
       <div className="flex flex-row items-center">
         <ul
-          // style={{transition:"height 200ms"}}
           className={`${
             show ? `h-52 ` : `h-0 `
-          } transition-height duration-300 flex-col w-full absolute top-20 left-0 right-0 flex md:flex-row md:static md:items-center px-5 bg-white`}
+          } transition-height duration-300 flex-col w-full absolute top-20 left-0 right-0 flex md:flex-row md:static md:items-center px-5 bg-white shadow-md`}
         >
           {menuList.map((item) => (
             <Link
