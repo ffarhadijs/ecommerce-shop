@@ -6,7 +6,7 @@ const Billing = () => {
   const formik = useFormik({
     initialValues: {
       firstName: "",
-      lastname: "",
+      lastName: "",
       company: "",
       address: "",
       city: "",
@@ -17,7 +17,7 @@ const Billing = () => {
     onsubmit: () => {
       formik.setValues({
         firstName: "",
-        lastname: "",
+        lastName: "",
         company: "",
         address: "",
         city: "",
@@ -78,7 +78,7 @@ const Billing = () => {
           ) : null}
         </div>
         <div className="h-24 w-full sm:w-1/2">
-          <label
+        <label
             htmlFor="lastName"
             className="text-gray-600 text-sm font-semibold py-1 block"
           >

@@ -6,7 +6,7 @@ const Shipping = () => {
   const formik = useFormik({
     initialValues: {
       firstName: "",
-      lastname: "",
+      lastName: "",
       company: "",
       address: "",
       city: "",
@@ -17,7 +17,7 @@ const Shipping = () => {
     onsubmit: () => {
       formik.setValues({
         firstName: "",
-        lastname: "",
+        lastName: "",
         company: "",
         address: "",
         city: "",
