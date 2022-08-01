@@ -9,7 +9,8 @@ import { footerAccountItems, footerLinkItems } from "../../data/dummyData";
 const Footer = () => {
   return (
     <div className=" bg-slate-900 py-10 text-gray-400 flex flex-wrap flex-row justify-between items-start">
-      <div className="flex flex-col w-3/4 sm:w-1/3 px-6">
+      <div className="flex flex-col w-3/4 sm:w-1/3 px-6 items-start">
+        <div className="mx-auto">
         <div className="p-4 ">
           <img
             src={logo}
@@ -40,6 +41,7 @@ const Footer = () => {
             <p className="pb-2">info@BoShop.com</p>
             <p>contact@BoShop.com</p>
           </div>
+        </div>
         </div>
       </div>
 
