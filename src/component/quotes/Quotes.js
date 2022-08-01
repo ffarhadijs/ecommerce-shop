@@ -14,7 +14,7 @@ const Quotes = () => {
   };
 
   return (
-    <div className="flex flex-col pb-20 pt-10 text-center w-2/3 mx-auto">
+    <div className="flex flex-col pb-20 pt-10 text-center w-full px-4 sm:px-0 sm:w-2/3 mx-auto">
       <div className="mx-auto text-2xl ">
         <ImQuotesLeft />
       </div>
